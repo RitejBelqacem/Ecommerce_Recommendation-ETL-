@@ -78,7 +78,8 @@ def register():
         last_name=last_name,
         email=email,
         password=generate_password_hash(password),
-        phone=phone
+        phone=phone,
+        role="admin" if email == "admin@gmail.com" else "user"
     )
 
     db.session.add(new_user)

@@ -14,7 +14,7 @@ function Register() {
   const navigate = useNavigate();
 
   const handleRegister = async () => {
-    // 🟡 Validation simple
+    // Validation simple
     if (!email || !password || !firstName) {
       setMessage("⚠️ Veuillez remplir les champs obligatoires");
       return;
@@ -44,10 +44,10 @@ function Register() {
         return;
       }
 
-      // 🟢 Succès
+      //  Succès
       setMessage("✅ Compte créé ! Vérifiez votre email ");
 
-      // ⏳ attendre 3s puis rediriger
+     
       setTimeout(() => {
         navigate("/");
       }, 3000);

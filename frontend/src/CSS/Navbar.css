@@ -1,0 +1,134 @@
+/* RESET */
+body {
+  margin: 0;
+}
+
+/* NAVBAR FULL WIDTH */
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  color: white;
+}
+
+/* 🔥 CONTENU CENTRÉ */
+.navbar-content {
+  width: 80%;          /* largeur du contenu */
+  margin: auto;        /* centre horizontal */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+/* LOGO */
+.navbar-logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* LINKS */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar-links li:hover {
+  color: #ffd369;
+}
+
+/* underline animation */
+.navbar-links li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #ffd369;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.navbar-links li:hover::after {
+  width: 100%;
+}
+
+/* BUTTON */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.logout {
+  background: #ff4d4d;
+  color: white;
+  /* USER MENU */
+.user-menu {
+  position: relative;
+}
+
+/* ICON */
+.user-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  width: 150px;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown div {
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dropdown div:hover {
+  background: #f2f2f2;
+}
+
+/* logout style */
+.logout-item {
+  color: red;
+  font-weight: bold;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.navbar-logo {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+}
