@@ -8,7 +8,6 @@ from models import db
 from routes.products import products_bp
 from routes.auth import auth_bp
 from routes.recommendation import recommend_bp
-from routes.chatbot import chatbot_bp
 
 # Initialisation de l'app
 app = Flask(__name__)
@@ -25,7 +24,7 @@ app.config["MAIL_SERVER"] = "localhost"
 app.config["MAIL_PORT"] = 1025
 app.config["MAIL_USERNAME"] = ""
 app.config["MAIL_PASSWORD"] = ""
-app.config["MAIL_DEFAULT_SENDER"] = "noreply@test.com"
+app.config["MAIL_DEFAULT_SENDER"] = "E_shop@eshop.com"
 
 #  Secret key (important pour tokens plus tard)
 app.config["SECRET_KEY"] = "super-secret-key"
@@ -39,7 +38,6 @@ mail = Mail(app)
 app.register_blueprint(products_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(recommend_bp)
-app.register_blueprint(chatbot_bp)
 
 
 @app.route("/")

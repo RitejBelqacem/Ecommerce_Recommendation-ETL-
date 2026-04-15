@@ -1,0 +1,69 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+}
+
+/* Contenu principal */
+.main-content {
+  margin-left: 220px; /* espace pour sidebar */
+  padding: 40px;
+}
+
+/* Titre principal */
+.main-content h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Conteneur des boutons */
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Boutons (cartes) */
+.buttons-container button {
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+  color: #333; /* ✅ texte visible */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover */
+.buttons-container button:hover {
+  transform: translateY(-5px);
+  background-color: #4a90e2;
+  color: white;
+}
+
+/* Bouton Ajouter */
+.add-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}

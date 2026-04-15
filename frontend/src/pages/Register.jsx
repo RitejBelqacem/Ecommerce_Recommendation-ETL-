@@ -8,6 +8,11 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
+
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -15,8 +20,13 @@ function Register() {
 
   const handleRegister = async () => {
     // Validation simple
-    if (!email || !password || !firstName) {
+    if (!firstName || !email || !password) {
       setMessage("⚠️ Veuillez remplir les champs obligatoires");
+      return;
+    }
+
+    if (password.length < 6) {
+      setMessage("⚠️ Mot de passe trop court (min 6 caractères)");
       return;
     }
 
@@ -32,7 +42,10 @@ function Register() {
           last_name: lastName,
           email,
           password,
-          phone
+          phone,
+          address,
+          city,
+          country
         })
       });
 
@@ -44,13 +57,11 @@ function Register() {
         return;
       }
 
-      //  Succès
-      setMessage("✅ Compte créé ! Vérifiez votre email ");
+      setMessage("✅ Compte créé avec succès !");
 
-     
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
 
     } catch (err) {
       console.error(err);
@@ -67,40 +78,58 @@ function Register() {
 
         {message && <p className="message">{message}</p>}
 
-        <input 
-          placeholder="Prénom *" 
-          value={firstName} 
-          onChange={e => setFirstName(e.target.value)} 
+        <input
+          placeholder="Prénom *"
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
         />
 
-        <input 
-          placeholder="Nom" 
-          value={lastName} 
-          onChange={e => setLastName(e.target.value)} 
+        <input
+          placeholder="Nom"
+          value={lastName}
+          onChange={e => setLastName(e.target.value)}
         />
 
-        <input 
-          type="email" 
-          placeholder="Email *" 
-          value={email} 
-          onChange={e => setEmail(e.target.value)} 
+        <input
+          type="email"
+          placeholder="Email *"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
 
-        <input 
-          type="password" 
-          placeholder="Mot de passe *" 
-          value={password} 
-          onChange={e => setPassword(e.target.value)} 
+        <input
+          type="password"
+          placeholder="Mot de passe *"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
 
-        <input 
-          placeholder="Téléphone" 
-          value={phone} 
-          onChange={e => setPhone(e.target.value)} 
+        <input
+          placeholder="Téléphone"
+          value={phone}
+          onChange={e => setPhone(e.target.value)}
         />
 
-        <button 
-          className="btn-primary" 
+        <input
+          placeholder="Adresse"
+          value={address}
+          onChange={e => setAddress(e.target.value)}
+        />
+
+        <input
+          placeholder="Ville"
+          value={city}
+          onChange={e => setCity(e.target.value)}
+        />
+
+        <input
+          placeholder="Pays"
+          value={country}
+          onChange={e => setCountry(e.target.value)}
+        />
+
+        <button
+          className="btn-primary"
           onClick={handleRegister}
           disabled={loading}
         >
@@ -109,8 +138,8 @@ function Register() {
 
         <p>Déjà un compte ?</p>
 
-        <button 
-          className="btn-secondary" 
+        <button
+          className="btn-secondary"
           onClick={() => navigate("/")}
         >
           Se connecter

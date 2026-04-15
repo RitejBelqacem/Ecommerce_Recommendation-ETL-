@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import "../CSS/AddProduct.css";
 
 function Products() {
   const navigate = useNavigate();
@@ -9,30 +10,122 @@ function Products() {
       <Sidebar />
 
       <div className="main-content">
-        <h1>📦 Gestion des Produits</h1>
 
-        <div className="buttons-container">
-          
-          <button onClick={() => navigate("/admin/products/all")}>
-            📋 Tous les produits
-          </button>
+        <h1 className="title">Gestion des Produits</h1>
 
-          <button onClick={() => navigate("/admin/products/electronics")}>
-            💻 Électronique
-          </button>
+        <div className="center-container">
 
-          <button onClick={() => navigate("/admin/products/clothes")}>
-            👕 Vêtements
-          </button>
-
-          <button 
-            className="add-btn"
+          <button
+            className="btn add"
             onClick={() => navigate("/admin/add-product")}
           >
             ➕ Ajouter Produit
           </button>
 
+          <button
+            className="btn"
+            onClick={() => navigate("/admin/products/all")}
+          >
+            📋 Tous les produits
+          </button>
+
+          <button
+            className="btn"
+            onClick={() => navigate("/admin/products/electronics")}
+          >
+            💻 Électronique
+          </button>
+
+          <button
+            className="btn"
+            onClick={() => navigate("/admin/products/clothes")}
+          >
+            👕 Vêtements
+          </button>
+
         </div>
+
+        {/* CSS LOCAL */}
+        <style>{`
+          .main-content {
+            margin-left: 220px;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 30px;
+          }
+
+          /* CENTRAGE PLUS PRO */
+          .center-container {
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+          }
+
+          /* BOUTONS STYLE CARDS (comme ton CSS) */
+          .btn {
+            width: 320px; /* 🔥 plus large */
+            padding: 22px;
+            font-size: 17px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+
+            background-color: white;
+            color: #333;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+
+          .btn:hover {
+            transform: translateY(-6px);
+            background-color: #4a90e2;
+            color: white;
+          }
+
+          /* ADD BUTTON (VERT comme ton CSS) */
+          .add {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+          }
+
+          .add:hover {
+            background-color: #3e8e41;
+            color: white;
+          }
+
+          /* RESPONSIVE */
+          @media (max-width: 768px) {
+            .main-content {
+              margin-left: 0;
+              padding: 20px;
+            }
+
+            .btn {
+              width: 90%;
+            }
+          }
+        `}</style>
+
       </div>
     </div>
   );

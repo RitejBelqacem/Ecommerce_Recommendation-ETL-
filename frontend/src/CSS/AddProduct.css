@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Formulaire */
+.add-form {
+  background: white;
+  padding: 60px 50px; /* ⬅️ plus d’espace interne */
+  border-radius: 15px;
+  width: 600px; /* ⬅️ largeur augmentée */
+  max-width: 95%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.add-form h2 {
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+/* Inputs */
+.add-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Boutons */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #3e8e41;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 12px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.add-form input,
+.add-form select {
+  padding: 16px; 
+  font-size: 16px;
+}

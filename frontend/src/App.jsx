@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AdminDashboard from "./pages/AdminDashboard";
 import Products from "./pages/Products";
+import AddProduct from "./pages/AddProduct";
+import AdminProducts from "./pages/AdminProducts";
 function App() {
   return (
     <BrowserRouter>
@@ -23,7 +25,8 @@ function App() {
 
         <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="/admin/products" element={<Products />} />
-
+<Route path="/admin/add-product" element={<AddProduct />} />
+<Route path="/admin/products/:category" element={<AdminProducts />} />
       </Routes>
     </BrowserRouter>
   );

@@ -66,24 +66,34 @@ def register():
     first_name = data.get("first_name", "")
     last_name = data.get("last_name", "")
     phone = data.get("phone", "")
+    address = data.get("address", "")
+    city = data.get("city", "")
+    country = data.get("country", "")
 
     if not email or not password:
         return jsonify({"error": "Email et mot de passe requis"}), 400
 
+    # check email exist
     if User.query.filter_by(email=email).first():
         return jsonify({"error": "Email déjà utilisé"}), 400
 
+    # create user
     new_user = User(
         first_name=first_name,
         last_name=last_name,
         email=email,
         password=generate_password_hash(password),
         phone=phone,
+        address=address,
+        city=city,
+        country=country,
         role="admin" if email == "admin@gmail.com" else "user"
     )
 
     db.session.add(new_user)
-    db.session.commit()
+    db.session.commit() 
+
+    return jsonify({"message": "Utilisateur créé avec succès"}), 201
 
     # 📧 Email bienvenue
     send_email(
