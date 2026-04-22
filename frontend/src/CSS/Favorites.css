@@ -1,0 +1,52 @@
+/* GRID FAVORITES */
+.favorites-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+
+/* CARD FAVORITE */
+.favorite-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+}
+
+/* INFO */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.price {
+  font-weight: bold;
+  color: #2a5298;
+}
+
+/* ACTIONS */
+.product-actions {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}

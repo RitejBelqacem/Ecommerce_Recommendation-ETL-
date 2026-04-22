@@ -7,12 +7,13 @@ import ResetPassword from "./pages/ResetPassword";
 
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import Panier from "./pages/Panier";
 import AdminDashboard from "./pages/AdminDashboard";
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
 import AdminProducts from "./pages/AdminProducts";
 function App() {
-  return (
+  retu
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -20,13 +21,15 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
-          <Route path="/home" element={<Home />} />
-          <Route path="/favorites" element={<Favorites />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/panier" element={<Panier />} />
 
         <Route path="/admin" element={<AdminDashboard />} />
-                <Route path="/admin/products" element={<Products />} />
-<Route path="/admin/add-product" element={<AddProduct />} />
-<Route path="/admin/products/:category" element={<AdminProducts />} />
+        <Route path="/admin/products" element={<Products />} />
+        <Route path="/admin/add-product" element={<AddProduct />} />
+        <Route path="/admin/products/:category" element={<AdminProducts />} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -25,7 +25,7 @@ function AdminProducts() {
     image: ""
   });
 
-  // 🔥 GET PRODUCTS
+  //  GET PRODUCTS
   const fetchProducts = () => {
     fetch("http://127.0.0.1:5000/products")
       .then(res => res.json())
@@ -56,7 +56,7 @@ function AdminProducts() {
       .then(() => fetchProducts());
   };
 
-  // ✏️ OPEN MODAL + PRE-FILL FORM
+  //  OPEN MODAL + PRE-FILL FORM
   const handleEdit = (product) => {
     setSelectedProduct(product);
 
@@ -82,7 +82,7 @@ function AdminProducts() {
     });
   };
 
-  // 💾 UPDATE PRODUCT
+  //  UPDATE PRODUCT
   const handleUpdate = () => {
     fetch(`http://127.0.0.1:5000/products/${selectedProduct.id}`, {
       method: "PUT",
@@ -127,7 +127,7 @@ function AdminProducts() {
         {/* TITLE */}
         <h1 style={{ marginTop: "30px" }}>
           Produits - {category}
-        </h1>
+        </h1> 
 
         {/* PRODUCTS */}
         <div className="products-grid">

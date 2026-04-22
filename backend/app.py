@@ -8,6 +8,10 @@ from models import db
 from routes.products import products_bp
 from routes.auth import auth_bp
 from routes.recommendation import recommend_bp
+from routes.panier import panier_bp
+from routes.commande import commande_bp
+from routes.favoris import favoris_bp
+
 
 # Initialisation de l'app
 app = Flask(__name__)
@@ -38,8 +42,9 @@ mail = Mail(app)
 app.register_blueprint(products_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(recommend_bp)
-
-
+app.register_blueprint(panier_bp)
+app.register_blueprint(commande_bp)
+app.register_blueprint(favoris_bp)
 @app.route("/")
 def home():
     return {"message": "API is working 🚀"}

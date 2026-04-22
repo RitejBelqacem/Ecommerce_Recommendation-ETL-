@@ -89,6 +89,12 @@ function Register() {
           value={lastName}
           onChange={e => setLastName(e.target.value)}
         />
+        <input
+          type="number"
+          placeholder="Âge"
+          value={age}
+          onChange={e => setAge(e.target.value)}
+        />
 
         <input
           type="email"

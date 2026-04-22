@@ -22,10 +22,13 @@ function Navbar() {
 
         <ul className="navbar-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/Home">Home</Link>
           </li>
          <li>
             <Link to="/favorites">Favorites</Link>
+          </li>
+          <li>
+            <Link to="/panier">Panier</Link>
           </li>
 
         </ul>
