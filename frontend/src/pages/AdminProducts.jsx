@@ -3,6 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../CSS/Products.css";
 import "../CSS/ProductsList.css";
+import { FaLaptop, FaTshirt, FaHome, FaBasketballBall } from "react-icons/fa";
+import { MdOutlineSportsSoccer } from "react-icons/md";
+import { GiLipstick } from "react-icons/gi";
 
 function AdminProducts() {
   const { category } = useParams();
@@ -110,23 +113,62 @@ function AdminProducts() {
       <div className="main-content">
 
         {/* BUTTONS */}
-        <div className="buttons-container">
-          <button onClick={() => navigate("/admin/products/all")}>
-            📋 Tous les produits
-          </button>
+        <div className="center-container">
 
-          <button onClick={() => navigate("/admin/products/electronics")}>
-            💻 Électronique
-          </button>
+  <button
+    className="btn add"
+    onClick={() => navigate("/admin/add-product")}
+  >
+    ➕ Ajouter Produit
+  </button>
 
-          <button onClick={() => navigate("/admin/products/clothes")}>
-            👕 Vêtements
-          </button>
-        </div>
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/all")}
+  >
+    📋 Tous les produits
+  </button>
+
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/electronics")}
+  >
+    <FaLaptop /> Electronics
+  </button>
+
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/sports")}
+  >
+    <FaBasketballBall /> Sports
+  </button>
+
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/clothing")}
+  >
+    <FaTshirt /> Clothing
+  </button>
+
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/home")}
+  >
+    <FaHome /> Home
+  </button>
+
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/beauty")}
+  >
+    <GiLipstick /> Beauty
+  </button>
+
+</div>
 
         {/* TITLE */}
         <h1 style={{ marginTop: "30px" }}>
-          Produits - {category}
+          {category}
         </h1> 
 
         {/* PRODUCTS */}

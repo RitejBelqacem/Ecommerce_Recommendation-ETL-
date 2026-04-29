@@ -1,0 +1,80 @@
+{
+  "total_favoris": 2006,
+  "users_with_fav": 862,
+  "pct_users_fav": 43.06,
+  "avg_fav_per_user": 2.33,
+  "top_products": [
+    {
+      "product_id": 166,
+      "product_name": "Either",
+      "count": 2
+    },
+    {
+      "product_id": 662,
+      "product_name": "Stand",
+      "count": 1
+    },
+    {
+      "product_id": 662,
+      "product_name": "Republican",
+      "count": 1
+    },
+    {
+      "product_id": 662,
+      "product_name": "Anyone",
+      "count": 1
+    },
+    {
+      "product_id": 661,
+      "product_name": "Such",
+      "count": 1
+    },
+    {
+      "product_id": 661,
+      "product_name": "Budget",
+      "count": 1
+    },
+    {
+      "product_id": 661,
+      "product_name": "Analysis",
+      "count": 1
+    },
+    {
+      "product_id": 660,
+      "product_name": "How",
+      "count": 1
+    },
+    {
+      "product_id": 659,
+      "product_name": "Yard",
+      "count": 1
+    },
+    {
+      "product_id": 659,
+      "product_name": "Read",
+      "count": 1
+    }
+  ],
+  "by_category": [
+    {
+      "category": "Electronics",
+      "count": 426
+    },
+    {
+      "category": "Sports",
+      "count": 421
+    },
+    {
+      "category": "Clothing",
+      "count": 393
+    },
+    {
+      "category": "Beauty",
+      "count": 388
+    },
+    {
+      "category": "Home",
+      "count": 378
+    }
+  ]
+}

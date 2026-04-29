@@ -4,6 +4,8 @@
   flex-direction: column;
   gap: 20px;
   padding: 30px;
+  min-height: 100vh;
+  background: #ffffff;
 }
 
 /* CARD FAVORITE */

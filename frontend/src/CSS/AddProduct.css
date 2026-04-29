@@ -1,67 +1,26 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
-}
-
-.add-container {
+.input-box {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  color: #333;
 }
 
-/* Formulaire */
-.add-form {
-  background: white;
-  padding: 60px 50px; /* ⬅️ plus d’espace interne */
-  border-radius: 15px;
-  width: 600px; /* ⬅️ largeur augmentée */
-  max-width: 95%;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  text-align: center;
-}
-
-.add-form h2 {
-  margin-bottom: 20px;
-  color: #4a90e2;
-}
-
-/* Inputs */
-.add-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-/* Boutons */
-.btn-primary {
-  width: 100%;
-  padding: 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: #3e8e41;
-}
-
-.btn-secondary {
-  width: 100%;
-  padding: 12px;
-  background-color: #ddd;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.add-form input,
-.add-form select {
-  padding: 16px; 
+.input-box .icon {
+  margin-right: 10px;
+  color:  #573ff5;
   font-size: 16px;
+}
+
+.input-box input,
+.input-box select {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-size: 15px;
+  color: #333;
 }

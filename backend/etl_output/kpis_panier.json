@@ -1,0 +1,81 @@
+{
+  "total_items": 2003,
+  "total_quantity": 6081,
+  "users_with_cart": 863,
+  "abandoned_carts": 110,
+  "abandon_rate": 12.75,
+  "by_category": [
+    {
+      "category": "Beauty",
+      "quantity": 1267
+    },
+    {
+      "category": "Clothing",
+      "quantity": 1233
+    },
+    {
+      "category": "Electronics",
+      "quantity": 1212
+    },
+    {
+      "category": "Home",
+      "quantity": 1190
+    },
+    {
+      "category": "Sports",
+      "quantity": 1179
+    }
+  ],
+  "top_products": [
+    {
+      "product_id": 473,
+      "product_name": "Reduce",
+      "total_quantity": 7
+    },
+    {
+      "product_id": 156,
+      "product_name": "Level",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 154,
+      "product_name": "Conference",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 153,
+      "product_name": "Ever",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 768,
+      "product_name": "President",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 768,
+      "product_name": "Central",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 767,
+      "product_name": "Hot",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 767,
+      "product_name": "Beyond",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 274,
+      "product_name": "Too",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 273,
+      "product_name": "Their",
+      "total_quantity": 5
+    }
+  ]
+}

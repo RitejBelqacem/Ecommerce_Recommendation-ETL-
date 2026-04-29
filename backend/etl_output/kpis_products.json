@@ -1,0 +1,89 @@
+{
+  "total_products": 1998,
+  "avg_price": 1507.66,
+  "avg_discount": 106.51,
+  "featured": 958,
+  "out_of_stock": 39,
+  "available": 1008,
+  "by_category": [
+    {
+      "category": "Electronics",
+      "count": 424
+    },
+    {
+      "category": "Beauty",
+      "count": 420
+    },
+    {
+      "category": "Sports",
+      "count": 400
+    },
+    {
+      "category": "Clothing",
+      "count": 388
+    },
+    {
+      "category": "Home",
+      "count": 366
+    }
+  ],
+  "price_by_category": [
+    {
+      "category": "Home",
+      "avg_price": 1536.35
+    },
+    {
+      "category": "Sports",
+      "avg_price": 1516.42
+    },
+    {
+      "category": "Beauty",
+      "avg_price": 1501.33
+    },
+    {
+      "category": "Electronics",
+      "avg_price": 1494.77
+    },
+    {
+      "category": "Clothing",
+      "avg_price": 1492.47
+    }
+  ],
+  "top_discounted": [
+    {
+      "name": "Mother Product",
+      "category": "Clothing",
+      "price": 2922.0,
+      "old_price": 3122.0,
+      "discount": 200.0
+    },
+    {
+      "name": "Include Product",
+      "category": "Home",
+      "price": 1579.0,
+      "old_price": 1779.0,
+      "discount": 200.0
+    },
+    {
+      "name": "Administration Product",
+      "category": "Beauty",
+      "price": 2497.0,
+      "old_price": 2697.0,
+      "discount": 200.0
+    },
+    {
+      "name": "Like Product",
+      "category": "Beauty",
+      "price": 888.0,
+      "old_price": 1088.0,
+      "discount": 200.0
+    },
+    {
+      "name": "Early Product",
+      "category": "Home",
+      "price": 973.0,
+      "old_price": 1173.0,
+      "discount": 200.0
+    }
+  ]
+}

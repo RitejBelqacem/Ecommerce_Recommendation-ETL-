@@ -2,6 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../CSS/AddProduct.css";
 
+import {
+  FaBox,
+  FaAlignLeft,
+  FaTags,
+  FaIndustry,
+  FaDollarSign,
+  FaWarehouse,
+  FaImage,
+  FaPlus,
+  FaTimes
+} from "react-icons/fa";
+
 function AddProduct() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -17,9 +29,7 @@ function AddProduct() {
   const handleSubmit = () => {
     fetch("http://127.0.0.1:5000/products", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name,
         description,
@@ -41,81 +51,101 @@ function AddProduct() {
   return (
     <div className="add-container">
       <div className="add-form">
-        <h2>➕ Ajouter un produit</h2>
+        <h2><FaPlus /> Ajouter un produit</h2>
 
-        {/* Nom */}
-        <input
-          placeholder="Nom du produit"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
+        {/* NAME */}
+        <div className="input-box">
+          <FaBox className="icon" />
+          <input
+            placeholder="Nom du produit"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </div>
 
-        {/* Description */}
-        <input
-          placeholder="Description"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        />
+        {/* DESCRIPTION */}
+        <div className="input-box">
+          <FaAlignLeft className="icon" />
+          <input
+            placeholder="Description"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+        </div>
 
-        {/* Catégorie */}
-        <select
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-        >
-          <option value="">-- Choisir une catégorie --</option>
-          <option value="Electronique">💻 Électronique</option>
-          <option value="Vetements">👕 Vêtements</option>
-          <option value="other">📦 Autre</option>
-        </select>
+        {/* CATEGORY */}
+        <div className="input-box">
+          <FaTags className="icon" />
+          <select value={category} onChange={e => setCategory(e.target.value)}>
+            <option value="">Catégorie</option>
+            <option value="Electronics">💻 Electronics</option>
+            <option value="Sports">⚽ Sports</option>
+            <option value="Clothing">👕 Clothing</option>
+            <option value="Home">🏠 Home</option>
+            <option value="Beauty">💄 Beauty</option>
+          </select>
+        </div>
 
-        {/* Marque */}
-        <input
-          placeholder="Marque"
-          value={brand}
-          onChange={e => setBrand(e.target.value)}
-        />
+        {/* BRAND */}
+        <div className="input-box">
+          <FaIndustry className="icon" />
+          <input
+            placeholder="Marque"
+            value={brand}
+            onChange={e => setBrand(e.target.value)}
+          />
+        </div>
 
-        {/* Prix */}
-        <input
-          type="number"
-          placeholder="Prix"
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        />
+        {/* PRICE */}
+        <div className="input-box">
+          <FaDollarSign className="icon" />
+          <input
+            type="number"
+            placeholder="Prix"
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+        </div>
 
-        {/* Ancien prix */}
-        <input
-          type="number"
-          placeholder="Ancien prix (optionnel)"
-          value={oldPrice}
-          onChange={e => setOldPrice(e.target.value)}
-        />
+        {/* OLD PRICE */}
+        <div className="input-box">
+          <FaDollarSign className="icon" />
+          <input
+            type="number"
+            placeholder="Ancien prix"
+            value={oldPrice}
+            onChange={e => setOldPrice(e.target.value)}
+          />
+        </div>
 
-        {/* Stock */}
-        <input
-          type="number"
-          placeholder="Stock"
-          value={stock}
-          onChange={e => setStock(e.target.value)}
-        />
+        {/* STOCK */}
+        <div className="input-box">
+          <FaWarehouse className="icon" />
+          <input
+            type="number"
+            placeholder="Stock"
+            value={stock}
+            onChange={e => setStock(e.target.value)}
+          />
+        </div>
 
-        {/* Image */}
-        <input
-          placeholder="URL image"
-          value={image}
-          onChange={e => setImage(e.target.value)}
-        />
+        {/* IMAGE */}
+        <div className="input-box">
+          <FaImage className="icon" />
+          <input
+            placeholder="URL image"
+            value={image}
+            onChange={e => setImage(e.target.value)}
+          />
+        </div>
 
-        {/* Bouton */}
+        {/* BUTTONS */}
         <button className="btn-primary" onClick={handleSubmit}>
           Ajouter
         </button>
 
-        <button
-          className="btn-secondary"
-          onClick={() => navigate("/admin/products")}
-        >
-          Annuler
+        <button className="btn-secondary" onClick={() => navigate("/admin/products")}>
+          <FaTimes /> Annuler
         </button>
       </div>
     </div>

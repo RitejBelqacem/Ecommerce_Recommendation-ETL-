@@ -26,11 +26,16 @@ def get_products():
 
 
 # ---------------- ADD PRODUCT ----------------
+
 @products_bp.route("/products", methods=["POST"])
 def add_product():
-    data = request.json
+    try:
+        data = request.get_json()
 
-    new_product = Product(
+        if not data:
+            return jsonify({"error": "No input data"}), 400
+
+        new_product = Product(
         name=data.get("name"),
         description=data.get("description"),
         category=data.get("category"),
@@ -39,17 +44,19 @@ def add_product():
         old_price=data.get("old_price"),
         stock=data.get("stock", 0),
         image=data.get("image"),
-        image_2=data.get("image_2"),
-        image_3=data.get("image_3"),
         is_available=data.get("is_available", True),
         is_featured=data.get("is_featured", False)
     )
 
-    db.session.add(new_product)
-    db.session.commit()
+        db.session.add(new_product)
+        db.session.commit()
 
-    return jsonify({"message": "Product added"})
+        return jsonify({"message": "Product added"}), 201
 
+    except Exception as e:
+        db.session.rollback()
+        print("ERROR:", e)
+        return jsonify({"error": str(e)}), 500
 
 # ---------------- GET ONE PRODUCT ----------------
 @products_bp.route("/products/<int:id>", methods=["GET"])

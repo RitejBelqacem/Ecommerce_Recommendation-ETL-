@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom"; 
 import Navbar from "../components/Navbar";
 import { FaTrash } from "react-icons/fa";
 import "../CSS/Panier.css";
@@ -111,7 +112,7 @@ function Panier() {
       <div className="panier-grid">
 
         {cart.length === 0 ? (
-          <h2 className="empty">🛒 Votre panier est vide</h2>
+          <h2 className="empty" style={{ color: "#573ff5" }}>🛒 Votre panier est vide</h2>
         ) : (
           <>
             {cart.map(item => (
@@ -153,7 +154,8 @@ function Panier() {
       </div>
 
       {/* MODAL */}
-      {showModal && (
+    {/* MODAL via Portal — rendu directement dans <body> */}
+      {showModal && createPortal(
         <div className="modal">
           <div className="modal-content">
 
@@ -163,17 +165,14 @@ function Panier() {
               placeholder="Nom"
               onChange={e => setForm({ ...form, nom: e.target.value })}
             />
-
             <input
               placeholder="Prénom"
               onChange={e => setForm({ ...form, prenom: e.target.value })}
             />
-
             <input
               placeholder="Téléphone"
               onChange={e => setForm({ ...form, phone: e.target.value })}
             />
-
             <input
               placeholder="Adresse"
               onChange={e => setForm({ ...form, address: e.target.value })}
@@ -182,13 +181,13 @@ function Panier() {
             <button className="validate-btn" onClick={handleOrder}>
               Valider commande
             </button>
-
             <button className="cancel-btn" onClick={() => setShowModal(false)}>
               Annuler
             </button>
 
           </div>
-        </div>
+        </div>,
+        document.getElementById("root")   // ← injecté directement dans <body>, aucun parent ne peut interférer
       )}
     </div>
   );

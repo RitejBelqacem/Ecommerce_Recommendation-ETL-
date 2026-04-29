@@ -1,56 +1,130 @@
 /* SIDEBAR */
 .sidebar {
-  position: fixed;  
+  position: fixed;
   top: 0;
-  left: 0;   
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #bbbbbb;
+  border-right: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  width: 220px;
-  height: 100vh;
-  background: linear-gradient(180deg, #1e3c72, #2a5298);
-  color: white;
-  padding: 20px;
-  position: fixed;
-
-
+  padding: 25px 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
 }
 
+/* TITRE */
 .sidebar-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
+  color: #573ff5;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
+/* MENU */
 .sidebar-links {
   list-style: none;
   padding: 0;
+  flex: 1;
 }
 
 .sidebar-links li {
-  padding: 12px;
-  margin: 10px 0;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
-  position: relative;
+  font-size: 15px;
+  color: #444;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
 }
 
+/* HOVER STYLE */
 .sidebar-links li:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffd369;
+  background: #573ff5;
+  color: #573ff5;
   transform: translateX(5px);
+  color:black
 }
 
+/* ACTIVE STYLE (optionnel si tu ajoutes class active) */
 .sidebar-links li.active {
-  background: rgba(255, 255, 255, 0.2);
+  background:#573ff5;
+  color: white;
 }
 
+/* LOGOUT BUTTON */
+.logout {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #573ff5;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.logout:hover {
+  background: #573ff5;
+}
+
+/* CONTENT */
 .main-content {
-  margin-left: 240px;
+  margin-left: 260px;
   padding: 20px;
 }
-.logout {
-  margin-top: auto; 
-  margin-bottom: 40px;
+.icon {
+  margin-right: 10px;
+  font-size: 16px;
+}
+.parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  margin-left: auto;
+  transition: 0.3s;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* SUBMENU */
+.submenu {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu li {
+  padding: 8px 10px;
+  margin: 5px 0;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #333;
+  transition: 0.2s;
+}
+
+.submenu li:hover {
+  background: #00b9f2;
+  color: #fff;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
 }

@@ -1,0 +1,283 @@
+{
+  "total_users": 2002,
+  "new_7d": 14,
+  "new_30d": 42,
+  "by_country": [
+    {
+      "country": "Tunisia",
+      "count": 1083
+    },
+    {
+      "country": "France",
+      "count": 93
+    },
+    {
+      "country": "Germany",
+      "count": 92
+    },
+    {
+      "country": "United States",
+      "count": 88
+    },
+    {
+      "country": "Canada",
+      "count": 87
+    },
+    {
+      "country": "Turkey",
+      "count": 87
+    },
+    {
+      "country": "United Kingdom",
+      "count": 85
+    },
+    {
+      "country": "Spain",
+      "count": 84
+    },
+    {
+      "country": "Morocco",
+      "count": 81
+    },
+    {
+      "country": "Italy",
+      "count": 77
+    },
+    {
+      "country": "Algeria",
+      "count": 72
+    },
+    {
+      "country": "Egypt",
+      "count": 69
+    },
+    {
+      "country": "",
+      "count": 2
+    },
+    {
+      "country": "Tunisie",
+      "count": 1
+    }
+  ],
+  "by_role": [
+    {
+      "role": "admin",
+      "count": 1
+    },
+    {
+      "role": "user",
+      "count": 2001
+    }
+  ],
+  "registrations_over_time": [
+    {
+      "month": "2022-01",
+      "count": 39
+    },
+    {
+      "month": "2022-02",
+      "count": 33
+    },
+    {
+      "month": "2022-03",
+      "count": 38
+    },
+    {
+      "month": "2022-04",
+      "count": 30
+    },
+    {
+      "month": "2022-05",
+      "count": 37
+    },
+    {
+      "month": "2022-06",
+      "count": 36
+    },
+    {
+      "month": "2022-07",
+      "count": 39
+    },
+    {
+      "month": "2022-08",
+      "count": 30
+    },
+    {
+      "month": "2022-09",
+      "count": 37
+    },
+    {
+      "month": "2022-10",
+      "count": 32
+    },
+    {
+      "month": "2022-11",
+      "count": 43
+    },
+    {
+      "month": "2022-12",
+      "count": 42
+    },
+    {
+      "month": "2023-01",
+      "count": 36
+    },
+    {
+      "month": "2023-02",
+      "count": 39
+    },
+    {
+      "month": "2023-03",
+      "count": 47
+    },
+    {
+      "month": "2023-04",
+      "count": 40
+    },
+    {
+      "month": "2023-05",
+      "count": 38
+    },
+    {
+      "month": "2023-06",
+      "count": 35
+    },
+    {
+      "month": "2023-07",
+      "count": 35
+    },
+    {
+      "month": "2023-08",
+      "count": 33
+    },
+    {
+      "month": "2023-09",
+      "count": 38
+    },
+    {
+      "month": "2023-10",
+      "count": 55
+    },
+    {
+      "month": "2023-11",
+      "count": 34
+    },
+    {
+      "month": "2023-12",
+      "count": 33
+    },
+    {
+      "month": "2024-01",
+      "count": 41
+    },
+    {
+      "month": "2024-02",
+      "count": 38
+    },
+    {
+      "month": "2024-03",
+      "count": 53
+    },
+    {
+      "month": "2024-04",
+      "count": 40
+    },
+    {
+      "month": "2024-05",
+      "count": 38
+    },
+    {
+      "month": "2024-06",
+      "count": 28
+    },
+    {
+      "month": "2024-07",
+      "count": 46
+    },
+    {
+      "month": "2024-08",
+      "count": 36
+    },
+    {
+      "month": "2024-09",
+      "count": 41
+    },
+    {
+      "month": "2024-10",
+      "count": 35
+    },
+    {
+      "month": "2024-11",
+      "count": 36
+    },
+    {
+      "month": "2024-12",
+      "count": 41
+    },
+    {
+      "month": "2025-01",
+      "count": 37
+    },
+    {
+      "month": "2025-02",
+      "count": 38
+    },
+    {
+      "month": "2025-03",
+      "count": 30
+    },
+    {
+      "month": "2025-04",
+      "count": 47
+    },
+    {
+      "month": "2025-05",
+      "count": 40
+    },
+    {
+      "month": "2025-06",
+      "count": 36
+    },
+    {
+      "month": "2025-07",
+      "count": 50
+    },
+    {
+      "month": "2025-08",
+      "count": 38
+    },
+    {
+      "month": "2025-09",
+      "count": 40
+    },
+    {
+      "month": "2025-10",
+      "count": 44
+    },
+    {
+      "month": "2025-11",
+      "count": 40
+    },
+    {
+      "month": "2025-12",
+      "count": 46
+    },
+    {
+      "month": "2026-01",
+      "count": 40
+    },
+    {
+      "month": "2026-02",
+      "count": 32
+    },
+    {
+      "month": "2026-03",
+      "count": 30
+    },
+    {
+      "month": "2026-04",
+      "count": 41
+    }
+  ]
+}

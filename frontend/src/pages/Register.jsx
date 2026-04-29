@@ -12,7 +12,7 @@ function Register() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-
+  const [age, setAge] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 

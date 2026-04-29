@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../CSS/AddProduct.css";
+import { FaLaptop, FaTshirt, FaHome, FaBasketballBall } from "react-icons/fa";
+import { MdOutlineSportsSoccer } from "react-icons/md";
+import { GiLipstick } from "react-icons/gi";
 
 function Products() {
   const navigate = useNavigate();
@@ -15,36 +18,56 @@ function Products() {
 
         <div className="center-container">
 
-          <button
-            className="btn add"
-            onClick={() => navigate("/admin/add-product")}
-          >
-            ➕ Ajouter Produit
-          </button>
+  <button
+    className="btn add"
+    onClick={() => navigate("/admin/add-product")}
+  >
+    ➕ Ajouter Produit
+  </button>
 
-          <button
-            className="btn"
-            onClick={() => navigate("/admin/products/all")}
-          >
-            📋 Tous les produits
-          </button>
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/all")}
+  >
+    📋 Tous les produits
+  </button>
 
-          <button
-            className="btn"
-            onClick={() => navigate("/admin/products/electronics")}
-          >
-            💻 Électronique
-          </button>
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/electronics")}
+  >
+    <FaLaptop /> Electronics
+  </button>
 
-          <button
-            className="btn"
-            onClick={() => navigate("/admin/products/clothes")}
-          >
-            👕 Vêtements
-          </button>
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/sports")}
+  >
+    <FaBasketballBall /> Sports
+  </button>
 
-        </div>
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/clothing")}
+  >
+    <FaTshirt /> Clothing
+  </button>
 
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/home")}
+  >
+    <FaHome /> Home
+  </button>
+
+  <button
+    className="btn"
+    onClick={() => navigate("/admin/products/beauty")}
+  >
+    <GiLipstick /> Beauty
+  </button>
+
+</div>
         {/* CSS LOCAL */}
         <style>{`
           .main-content {
@@ -103,13 +126,13 @@ function Products() {
 
           /* ADD BUTTON (VERT comme ton CSS) */
           .add {
-            background-color: #4CAF50;
+            background-color: #573ff5;
             color: white;
             font-weight: bold;
           }
 
           .add:hover {
-            background-color: #3e8e41;
+            background-color: #573ff5;
             color: white;
           }
 

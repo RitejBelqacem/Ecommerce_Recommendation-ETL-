@@ -13,7 +13,7 @@ import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
 import AdminProducts from "./pages/AdminProducts";
 function App() {
-  retu
+  return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />

@@ -19,8 +19,7 @@ class Product(db.Model):
 
     # Images
     image = db.Column(db.String(255))
-    image_2 = db.Column(db.String(255))
-    image_3 = db.Column(db.String(255))
+
 
     # Statut produit
     is_available = db.Column(db.Boolean, default=True)
