@@ -11,7 +11,13 @@ import Panier from "./pages/Panier";
 import AdminDashboard from "./pages/AdminDashboard";
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
+
 import AdminProducts from "./pages/AdminProducts";
+import UsersDashboard from "./pages/UsersDashboard";
+import ProductsDashboard from "./pages/ProductsDashboard";
+import CommandesDashboard from "./pages/CommandesDashboard";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +36,9 @@ function App() {
         <Route path="/admin/add-product" element={<AddProduct />} />
         <Route path="/admin/products/:category" element={<AdminProducts />} />
 
+        <Route path="/admin/utilisateurs" element={<UsersDashboard />} />
+        <Route path="/admin/produits" element={<ProductsDashboard />} />
+        <Route path="/admin/commandes" element={<CommandesDashboard />} />
       </Routes>
     </BrowserRouter>
   );

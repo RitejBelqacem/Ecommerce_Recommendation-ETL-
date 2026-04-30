@@ -14,12 +14,19 @@ from routes.commande import commande_bp
 from routes.favoris import favoris_bp
 from etl.pipeline import run_etl 
 from routes.activity import activity_bp
+from routes.analytics import analytics_bp
+from etl.extract import extract_product_views
+from etl.transform import transform_product_views
+
+
 # Initialisation de l'app
 app = Flask(__name__)
 
 # CORS (connexion React)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}},
-     supports_credentials=True)
+CORS(app, origins=[
+    "http://localhost:5173",
+    "http://127.0.0.1:5173"
+])
 # 🔵 Configuration base de données
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -47,6 +54,7 @@ app.register_blueprint(panier_bp)
 app.register_blueprint(commande_bp)
 app.register_blueprint(favoris_bp)
 app.register_blueprint(activity_bp)
+app.register_blueprint(analytics_bp) 
 @app.route("/")
 def home():
     return {"message": "API is working 🚀"}
@@ -76,6 +84,11 @@ def serve_etl_output(filename):
         filename
     )
 
+@app.route("/api/kpis/views")
+def kpis_views():
+    df = extract_product_views("instance/database.db")
+    kpis = transform_product_views(df)
+    return jsonify(kpis)
 
 # cer serveur
 if __name__ == "__main__":

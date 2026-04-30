@@ -1,13 +1,13 @@
 {
-  "total_items": 2003,
-  "total_quantity": 6081,
+  "total_items": 2001,
+  "total_quantity": 6079,
   "users_with_cart": 863,
   "abandoned_carts": 110,
   "abandon_rate": 12.75,
   "by_category": [
     {
       "category": "Beauty",
-      "quantity": 1267
+      "quantity": 1266
     },
     {
       "category": "Clothing",
@@ -15,7 +15,7 @@
     },
     {
       "category": "Electronics",
-      "quantity": 1212
+      "quantity": 1211
     },
     {
       "category": "Home",
@@ -33,48 +33,48 @@
       "total_quantity": 7
     },
     {
-      "product_id": 156,
-      "product_name": "Level",
+      "product_id": 161,
+      "product_name": "Street",
       "total_quantity": 5
     },
     {
-      "product_id": 154,
-      "product_name": "Conference",
+      "product_id": 392,
+      "product_name": "Care",
       "total_quantity": 5
     },
     {
-      "product_id": 153,
-      "product_name": "Ever",
+      "product_id": 391,
+      "product_name": "Not",
       "total_quantity": 5
     },
     {
-      "product_id": 768,
-      "product_name": "President",
+      "product_id": 390,
+      "product_name": "Draw",
       "total_quantity": 5
     },
     {
-      "product_id": 768,
-      "product_name": "Central",
+      "product_id": 386,
+      "product_name": "Head",
       "total_quantity": 5
     },
     {
-      "product_id": 767,
-      "product_name": "Hot",
+      "product_id": 958,
+      "product_name": "Data",
       "total_quantity": 5
     },
     {
-      "product_id": 767,
-      "product_name": "Beyond",
+      "product_id": 956,
+      "product_name": "Whatever",
       "total_quantity": 5
     },
     {
-      "product_id": 274,
-      "product_name": "Too",
+      "product_id": 956,
+      "product_name": "Protect",
       "total_quantity": 5
     },
     {
-      "product_id": 273,
-      "product_name": "Their",
+      "product_id": 954,
+      "product_name": "You",
       "total_quantity": 5
     }
   ]

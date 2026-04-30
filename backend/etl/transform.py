@@ -50,7 +50,7 @@ def transform_users(df_users: pd.DataFrame) -> dict:
         .sort_values("month")
         .to_dict(orient="records")
     )
-    
+
     return {
         "total_users":              total_users,
         "new_7d":                   new_7d,
@@ -59,7 +59,6 @@ def transform_users(df_users: pd.DataFrame) -> dict:
         "by_role":                  by_role,
         "registrations_over_time":  registrations_over_time,
     }
-
 
 
 # ─────────────────────────────────────────
@@ -133,13 +132,31 @@ def transform_products(df_products: pd.DataFrame) -> dict:
 # ─────────────────────────────────────────
 
 def transform_commandes(df_commandes: pd.DataFrame, df_users: pd.DataFrame) -> dict:
+    """
+    Calcule les KPIs commandes à partir des DataFrames bruts.
+
+    Paramètres :
+        df_commandes : DataFrame brut de la table commandes
+        df_users     : DataFrame brut de la table user (pour le taux de conversion)
+
+    Retourne :
+        total_orders       : nombre total de commandes
+        revenue            : CA total
+        avg_cart           : panier moyen
+        min_order          : commande minimale
+        max_order          : commande maximale
+        orders_7d          : commandes des 7 derniers jours
+        conversion_rate    : commandes uniques / total users (%)
+        monthly            : CA et volume par mois
+        revenue_cumulative : CA cumulé dans le temps
+    """
     now = pd.Timestamp.now()
 
     total_orders = len(df_commandes)
     revenue      = round(float(df_commandes["total"].sum()), 2)
-    avg_cart     = round(float(df_commandes["total"].mean() or 0), 2)
-    min_order    = round(float(df_commandes["total"].min() or 0), 2)
-    max_order    = round(float(df_commandes["total"].max() or 0), 2)
+    avg_cart     = round(float(df_commandes["total"].mean()), 2)
+    min_order    = round(float(df_commandes["total"].min()), 2)
+    max_order    = round(float(df_commandes["total"].max()), 2)
 
     orders_7d = int(
         df_commandes[df_commandes["created_at"] >= now - pd.Timedelta(days=7)].shape[0]
@@ -151,7 +168,7 @@ def transform_commandes(df_commandes: pd.DataFrame, df_users: pd.DataFrame) -> d
 
     monthly = (
         df_commandes.dropna(subset=["created_at"])
-        .assign(month=lambda x: x["created_at"].dt.to_period("M").astype(str))
+        .assign(month=df_commandes["created_at"].dt.to_period("M").astype(str))
         .groupby("month")
         .agg(orders=("id", "count"), revenue=("total", "sum"))
         .round(2)
@@ -163,30 +180,32 @@ def transform_commandes(df_commandes: pd.DataFrame, df_users: pd.DataFrame) -> d
     revenue_cumulative = (
         df_commandes.dropna(subset=["created_at"])
         .sort_values("created_at")
-        .assign(cumulative=lambda x: x["total"].cumsum().round(2))
+        .assign(cumulative=df_commandes["total"].cumsum().round(2))
         [["created_at", "cumulative"]]
         .assign(created_at=lambda x: x["created_at"].dt.strftime("%Y-%m-%d"))
         .to_dict(orient="records")
     )
-
+    # ── Commandes par jour ──
     orders_daily = (
-        df_commandes.dropna(subset=["created_at"])
-        .groupby(df_commandes["created_at"].dt.strftime("%Y-%m-%d"))
-        .size()
-        .reset_index(name="count")
-        .to_dict(orient="records")
-    )
+    df_commandes.dropna(subset=["created_at"])
+    .assign(created_at=df_commandes["created_at"].dt.strftime("%Y-%m-%d"))
+    .groupby("created_at")
+    .size()
+    .reset_index(name="count")
+    .sort_values("created_at")
+    .to_dict(orient="records")
+)
 
+# ── Top 5 clients ──
     top_users = (
-        df_commandes.groupby("user_id")["total"]
-        .sum()
-        .round(2)
-        .reset_index(name="total_spent")
-        .sort_values("total_spent", ascending=False)
-        .head(5)
-        .to_dict(orient="records")
-    )
-
+    df_commandes.groupby("user_id")["total"]
+    .sum()
+    .reset_index(name="total_spent")
+    .sort_values("total_spent", ascending=False)
+    .head(5)
+    .round(2)
+    .to_dict(orient="records")
+)
     return {
         "total_orders":        total_orders,
         "revenue":             revenue,
@@ -199,8 +218,58 @@ def transform_commandes(df_commandes: pd.DataFrame, df_users: pd.DataFrame) -> d
         "monthly":             monthly,
         "revenue_cumulative":  revenue_cumulative,
         "orders_daily":        orders_daily,
-        "top_users":           top_users,
+        "top_users":           top_users
     }
+
+
+# ─────────────────────────────────────────
+#  FAVORIS
+# ─────────────────────────────────────────
+
+def transform_favoris(df_favoris: pd.DataFrame, df_users: pd.DataFrame) -> dict:
+    """
+    Calcule les KPIs favoris.
+
+    Retourne :
+        total_favoris    : nombre total de favoris
+        users_with_fav   : nombre d'utilisateurs ayant au moins un favori
+        pct_users_fav    : % d'utilisateurs avec favoris
+        top_products     : top 10 produits les plus mis en favori
+        by_category      : répartition des favoris par catégorie
+        avg_fav_per_user : moyenne de favoris par utilisateur actif
+    """
+    total_favoris  = len(df_favoris)
+    users_with_fav = df_favoris["user_id"].nunique()
+    total_users    = len(df_users)
+    pct_users_fav  = round(users_with_fav / total_users * 100, 2) if total_users else 0
+    avg_fav_per_user = round(total_favoris / users_with_fav, 2) if users_with_fav else 0
+
+    top_products = (
+        df_favoris.groupby(["product_id", "product_name"])
+        .size()
+        .reset_index(name="count")
+        .sort_values("count", ascending=False)
+        .head(10)
+        .to_dict(orient="records")
+    )
+
+    by_category = (
+        df_favoris.groupby("category")
+        .size()
+        .reset_index(name="count")
+        .sort_values("count", ascending=False)
+        .to_dict(orient="records")
+    )
+
+    return {
+        "total_favoris":     total_favoris,
+        "users_with_fav":    users_with_fav,
+        "pct_users_fav":     pct_users_fav,
+        "avg_fav_per_user":  avg_fav_per_user,
+        "top_products":      top_products,
+        "by_category":       by_category,
+    }
+
 
 # ─────────────────────────────────────────
 #  PANIER
@@ -265,51 +334,92 @@ def transform_panier(
         "top_products":     top_products,
     }
 
+
+
 # ─────────────────────────────────────────
-#  FAVORIS
+#  PRODUCT VIEWS (produits les plus consultés)
 # ─────────────────────────────────────────
 
-def transform_favoris(df_favoris: pd.DataFrame, df_users: pd.DataFrame) -> dict:
+def transform_product_views(df_views: pd.DataFrame) -> dict:
     """
-    KPIs favoris
+    Calcule les KPIs de consultation produits.
+
+    Retourne :
+        total_views        : nombre total de consultations
+        unique_products    : nombre de produits distincts consultés
+        unique_visitors    : nombre de visiteurs uniques (user_id non null)
+        top_products       : top 10 produits les plus vus
+        by_category        : vues par catégorie
+        by_source          : vues par source (home, search, recommendation…)
+        views_over_time    : évolution des vues par jour (30 derniers jours)
+        avg_views_per_product : moyenne de vues par produit
     """
+    if df_views.empty:
+        return {
+            "total_views": 0, "unique_products": 0, "unique_visitors": 0,
+            "top_products": [], "by_category": [], "by_source": [],
+            "views_over_time": [], "avg_views_per_product": 0,
+        }
 
-    total_favoris  = len(df_favoris)
-    users_with_fav = df_favoris["user_id"].nunique()
-    total_users    = len(df_users)
+    total_views     = len(df_views)
+    unique_products = df_views["product_id"].nunique()
+    unique_visitors = df_views["user_id"].dropna().nunique()
+    avg_views       = round(total_views / unique_products, 2) if unique_products else 0
 
-    pct_users_fav = round(users_with_fav / total_users * 100, 2) if total_users else 0
-
-    avg_fav_per_user = (
-        round(total_favoris / users_with_fav, 2)
-        if users_with_fav else 0
-    )
-
+    # ── Top 10 produits les plus consultés ──
     top_products = (
-        df_favoris.groupby(["product_id", "product_name"])
+        df_views.groupby(["product_id", "product_name", "category"])
         .size()
-        .reset_index(name="count")
-        .sort_values("count", ascending=False)
+        .reset_index(name="views")
+        .sort_values("views", ascending=False)
         .head(10)
         .to_dict(orient="records")
     )
 
+    # ── Vues par catégorie ──
     by_category = (
-        df_favoris.groupby("category")
+        df_views.groupby("category")
         .size()
-        .reset_index(name="count")
-        .sort_values("count", ascending=False)
+        .reset_index(name="views")
+        .sort_values("views", ascending=False)
+        .to_dict(orient="records")
+    )
+
+    # ── Vues par source ──
+    by_source = (
+        df_views[df_views["source"].notna()]
+        .groupby("source")
+        .size()
+        .reset_index(name="views")
+        .sort_values("views", ascending=False)
+        .to_dict(orient="records")
+    )
+
+    # ── Évolution des vues (30 derniers jours) ──
+    now = pd.Timestamp.now()
+    views_over_time = (
+        df_views[df_views["viewed_at"] >= now - pd.Timedelta(days=30)]
+        .dropna(subset=["viewed_at"])
+        .assign(date=lambda x: x["viewed_at"].dt.strftime("%Y-%m-%d"))
+        .groupby("date")
+        .size()
+        .reset_index(name="views")
+        .sort_values("date")
         .to_dict(orient="records")
     )
 
     return {
-        "total_favoris":     total_favoris,
-        "users_with_fav":    users_with_fav,
-        "pct_users_fav":     pct_users_fav,
-        "avg_fav_per_user":  avg_fav_per_user,
-        "top_products":      top_products,
-        "by_category":       by_category,
+        "total_views":           total_views,
+        "unique_products":       unique_products,
+        "unique_visitors":       unique_visitors,
+        "avg_views_per_product": avg_views,
+        "top_products":          top_products,
+        "by_category":           by_category,
+        "by_source":             by_source,
+        "views_over_time":       views_over_time,
     }
+
+
 # ─────────────────────────────────────────
 #  TRANSFORM GLOBAL (point d'entrée ETL)
 # ─────────────────────────────────────────
@@ -330,11 +440,12 @@ def transform_all(raw: dict) -> dict:
     print(f"[{datetime.now().strftime('%H:%M:%S')}] TRANSFORM — début")
 
     kpis = {
-        "users":     transform_users(raw["users"]),
-        "products":  transform_products(raw["products"]),
-        "commandes": transform_commandes(raw["commandes"], raw["users"]),
-        "favoris":   transform_favoris(raw["favoris"], raw["users"]),
-        "panier":    transform_panier(raw["panier"], raw["commandes"], raw["users"]),
+        "users":         transform_users(raw["users"]),
+        "products":      transform_products(raw["products"]),
+        "commandes":     transform_commandes(raw["commandes"], raw["users"]),
+        "favoris":       transform_favoris(raw["favoris"], raw["users"]),
+        "panier":        transform_panier(raw["panier"], raw["commandes"], raw["users"]),
+        "product_views": transform_product_views(raw["product_views"]),
     }
 
     print(f"  ✓ users      — {kpis['users']['total_users']} users, {kpis['users']['new_30d']} nouveaux ce mois")
@@ -342,6 +453,7 @@ def transform_all(raw: dict) -> dict:
     print(f"  ✓ commandes  — CA {kpis['commandes']['revenue']} DT, panier moy. {kpis['commandes']['avg_cart']} DT")
     print(f"  ✓ favoris    — {kpis['favoris']['total_favoris']} favoris, {kpis['favoris']['pct_users_fav']}% des users")
     print(f"  ✓ panier     — {kpis['panier']['abandon_rate']}% taux d'abandon")
+    print(f"  ✓ views      — {kpis['product_views']['total_views']} vues, top: {kpis['product_views']['top_products'][0]['product_name'] if kpis['product_views']['top_products'] else 'N/A'}")
     print(f"[{datetime.now().strftime('%H:%M:%S')}] TRANSFORM — terminé")
 
     return kpis

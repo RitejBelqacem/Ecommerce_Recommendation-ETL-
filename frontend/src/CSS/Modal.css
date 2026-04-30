@@ -1,0 +1,72 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #fff;
+  width: 450px;
+  max-width: 95%;
+  max-height: 90vh;
+
+  padding: 20px;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* TITLE */
+.modal h2 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+/* INPUTS */
+.modal input {
+  width: 100%;
+  padding: 10px;
+  background: #f3e3d7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  color: #000;
+}
+
+/* BUTTONS */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* SAVE */
+.btn-primary {
+  background: #6c5ce7;
+  color: white;
+}
+
+/* CLOSE */
+.btn-secondary {
+  background: #e74c3c;
+  color: white;
+}

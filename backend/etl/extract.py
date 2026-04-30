@@ -89,6 +89,26 @@ def extract_panier(db_path: str = DB_PATH) -> pd.DataFrame:
     return df
 
 
+def extract_product_views(db_path: str = DB_PATH) -> pd.DataFrame:
+    """Lit la table product_view et retourne un DataFrame brut.
+    Jointure avec product pour récupérer name et category."""
+    conn = get_connection(db_path)
+    df = pd.read_sql_query(
+        """
+        SELECT pv.id, pv.user_id, pv.product_id,
+               p.name  AS product_name,
+               p.category,
+               pv.viewed_at, pv.source, pv.device, pv.country
+        FROM product_view pv
+        JOIN product p ON p.id = pv.product_id
+        """,
+        conn,
+        parse_dates=["viewed_at"],
+    )
+    conn.close()
+    return df
+
+
 def extract_all(db_path: str = DB_PATH) -> dict:
     """
     Point d'entrée du pipeline ETL — phase Extract uniquement.
@@ -102,11 +122,12 @@ def extract_all(db_path: str = DB_PATH) -> dict:
     print(f"[{datetime.now().strftime('%H:%M:%S')}] EXTRACT — début")
 
     raw = {
-        "users":     extract_users(db_path),
-        "products":  extract_products(db_path),
-        "commandes": extract_commandes(db_path),
-        "favoris":   extract_favoris(db_path),
-        "panier":    extract_panier(db_path),
+        "users":         extract_users(db_path),
+        "products":      extract_products(db_path),
+        "commandes":     extract_commandes(db_path),
+        "favoris":       extract_favoris(db_path),
+        "panier":        extract_panier(db_path),
+        "product_views": extract_product_views(db_path),
     }
 
     for name, df in raw.items():

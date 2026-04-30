@@ -1,13 +1,18 @@
 {
-  "total_favoris": 2006,
+  "total_favoris": 2007,
   "users_with_fav": 862,
-  "pct_users_fav": 43.06,
+  "pct_users_fav": 42.99,
   "avg_fav_per_user": 2.33,
   "top_products": [
     {
       "product_id": 166,
       "product_name": "Either",
       "count": 2
+    },
+    {
+      "product_id": 662,
+      "product_name": "Wife",
+      "count": 1
     },
     {
       "product_id": 662,
@@ -48,17 +53,12 @@
       "product_id": 659,
       "product_name": "Yard",
       "count": 1
-    },
-    {
-      "product_id": 659,
-      "product_name": "Read",
-      "count": 1
     }
   ],
   "by_category": [
     {
       "category": "Electronics",
-      "count": 426
+      "count": 427
     },
     {
       "category": "Sports",

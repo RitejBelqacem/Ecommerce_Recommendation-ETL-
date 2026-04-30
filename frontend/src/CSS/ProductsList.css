@@ -80,35 +80,3 @@
   background-color: #c0392b;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal {
-  background: #fff;
-  padding: 20px;
-  width: 420px;
-  border-radius: 10px;
-}
-
-.modal input {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-

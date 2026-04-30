@@ -127,3 +127,32 @@ with open("panier.csv", "w", newline='', encoding="utf-8") as f:
 
 
 print("✅ CSV files generated successfully!")
+
+# ==============================
+# 🔹 PRODUCT VIEWS (KPI)
+# ==============================
+with open("product_view.csv", "w", newline='', encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow([
+        "user_id",
+        "product_id",
+        "viewed_at",
+        "session_id",
+        "source",
+        "device",
+        "country"
+    ])
+
+    sources = ["home", "search", "recommendation", "product_page"]
+    devices = ["mobile", "desktop", "tablet"]
+
+    for _ in range(NUM_ROWS * 3):  # plus de views = normal en analytics
+        writer.writerow([
+            random.randint(1, NUM_ROWS),
+            random.randint(1, NUM_ROWS),
+            fake.date_time_between(start_date="-1y", end_date="now"),
+            fake.uuid4(),
+            random.choice(sources),
+            random.choice(devices),
+            random.choice(countries)
+        ])

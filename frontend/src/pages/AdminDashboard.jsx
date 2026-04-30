@@ -288,7 +288,6 @@ export default function AdminDashboard() {
         }}>
           <div>
             <div style={{ fontSize: 16, fontWeight: 600, color: C.textPrimary }}>Dashboard Admin</div>
-            {timeLabel && <div style={{ fontSize: 12, color: C.textMuted, marginTop: 2 }}>Mis à jour à {timeLabel}</div>}
           </div>
           <button
             onClick={handleRefresh} disabled={loading}

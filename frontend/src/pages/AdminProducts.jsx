@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../CSS/Products.css";
 import "../CSS/ProductsList.css";
+import "../CSS/Modal.css";
 import { FaLaptop, FaTshirt, FaHome, FaBasketballBall } from "react-icons/fa";
 import { MdOutlineSportsSoccer } from "react-icons/md";
 import { GiLipstick } from "react-icons/gi";

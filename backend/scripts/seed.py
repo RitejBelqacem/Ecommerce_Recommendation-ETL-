@@ -18,7 +18,7 @@ from models.product import Product
 from models.commande import Commande
 from models.favoris import Favoris
 from models.panier import Panier
-
+from models.product_view import ProductView
 
 def random_date(start_year=2022):
     start = datetime(start_year, 1, 1)
@@ -148,7 +148,27 @@ def seed_panier():
     db.session.commit()
     print("Panier added ✅")
 
+# 🔹 PRODUCT VIEWS
+def seed_product_views():
+    print("Seeding product views...")
 
+    with open(os.path.join(BASE_DIR, "product_view.csv"), newline='', encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+
+        for row in reader:
+            view = ProductView(
+                user_id=int(row["user_id"]) if row["user_id"] else None,
+                product_id=int(row["product_id"]),
+                viewed_at=datetime.fromisoformat(row["viewed_at"]),
+                session_id=row["session_id"],
+                source=row["source"],
+                device=row["device"],
+                country=row["country"]
+            )
+            db.session.add(view)
+
+    db.session.commit()
+    print("Product views added ✅")
 # 🔥 MAIN
 if __name__ == "__main__":
     with app.app_context():
@@ -159,5 +179,7 @@ if __name__ == "__main__":
         seed_commandes()
         seed_favoris()
         seed_panier()
+        seed_product_views()
 
         print("\nDATABASE SEEDED SUCCESSFULLY 🚀")
+

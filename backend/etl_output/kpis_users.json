@@ -1,11 +1,11 @@
 {
-  "total_users": 2002,
+  "total_users": 2005,
   "new_7d": 14,
-  "new_30d": 42,
+  "new_30d": 44,
   "by_country": [
     {
       "country": "Tunisia",
-      "count": 1083
+      "count": 1084
     },
     {
       "country": "France",
@@ -20,20 +20,20 @@
       "count": 88
     },
     {
-      "country": "Canada",
-      "count": 87
-    },
-    {
       "country": "Turkey",
       "count": 87
     },
     {
-      "country": "United Kingdom",
-      "count": 85
+      "country": "Canada",
+      "count": 87
     },
     {
       "country": "Spain",
-      "count": 84
+      "count": 85
+    },
+    {
+      "country": "United Kingdom",
+      "count": 85
     },
     {
       "country": "Morocco",
@@ -58,6 +58,10 @@
     {
       "country": "Tunisie",
       "count": 1
+    },
+    {
+      "country": "tunisia",
+      "count": 1
     }
   ],
   "by_role": [
@@ -67,7 +71,7 @@
     },
     {
       "role": "user",
-      "count": 2001
+      "count": 2004
     }
   ],
   "registrations_over_time": [
@@ -277,7 +281,7 @@
     },
     {
       "month": "2026-04",
-      "count": 41
+      "count": 44
     }
   ]
 }

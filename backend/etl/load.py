@@ -379,6 +379,95 @@ def load_kpi_panier(conn: sqlite3.Connection, kpis: dict) -> None:
     )
 
 
+
+# ─────────────────────────────────────────
+#  LOAD — PRODUCT VIEWS
+#  Clés transform : total_views, unique_products, unique_visitors,
+#                   avg_views_per_product, top_products,
+#                   by_category, by_source, views_over_time
+# ─────────────────────────────────────────
+
+def load_kpi_product_views(conn: sqlite3.Connection, kpis: dict) -> None:
+    s = kpis["product_views"]
+    cur = conn.cursor()
+
+    # ── kpi_views_summary ──
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS kpi_views_summary (
+            computed_at          TEXT PRIMARY KEY,
+            total_views          INTEGER,
+            unique_products      INTEGER,
+            unique_visitors      INTEGER,
+            avg_views_per_product REAL
+        )
+    """)
+    cur.execute(
+        "INSERT OR REPLACE INTO kpi_views_summary VALUES (?,?,?,?,?)",
+        (
+            datetime.now().isoformat(),
+            s["total_views"],
+            s["unique_products"],
+            s["unique_visitors"],
+            _f(s["avg_views_per_product"]),
+        ),
+    )
+
+    # ── kpi_views_top_products ──
+    # top_products : [{"product_id", "product_name", "category", "views"}]
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS kpi_views_top_products (
+            product_id   INTEGER PRIMARY KEY,
+            product_name TEXT,
+            category     TEXT,
+            views        INTEGER
+        )
+    """)
+    cur.executemany(
+        "INSERT OR REPLACE INTO kpi_views_top_products VALUES (?,?,?,?)",
+        [(r["product_id"], r["product_name"], r["category"], r["views"])
+         for r in s["top_products"]],
+    )
+
+    # ── kpi_views_by_category ──
+    # by_category : [{"category", "views"}]
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS kpi_views_by_category (
+            category TEXT PRIMARY KEY,
+            views    INTEGER
+        )
+    """)
+    cur.executemany(
+        "INSERT OR REPLACE INTO kpi_views_by_category VALUES (?,?)",
+        [(r["category"], r["views"]) for r in s["by_category"]],
+    )
+
+    # ── kpi_views_by_source ──
+    # by_source : [{"source", "views"}]
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS kpi_views_by_source (
+            source TEXT PRIMARY KEY,
+            views  INTEGER
+        )
+    """)
+    cur.executemany(
+        "INSERT OR REPLACE INTO kpi_views_by_source VALUES (?,?)",
+        [(r["source"], r["views"]) for r in s["by_source"]],
+    )
+
+    # ── kpi_views_over_time ──
+    # views_over_time : [{"date", "views"}]
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS kpi_views_over_time (
+            date  TEXT PRIMARY KEY,
+            views INTEGER
+        )
+    """)
+    cur.executemany(
+        "INSERT OR REPLACE INTO kpi_views_over_time VALUES (?,?)",
+        [(r["date"], r["views"]) for r in s["views_over_time"]],
+    )
+
+
 # ─────────────────────────────────────────
 #  LOG ETL
 # ─────────────────────────────────────────
@@ -412,7 +501,7 @@ def load_to_json(kpis: dict, output_dir: str = JSON_DIR) -> None:
             return obj.item()
         raise TypeError(f"Type non sérialisable : {type(obj)}")
 
-    for section in ["users", "products", "commandes", "favoris", "panier"]:
+    for section in ["users", "products", "commandes", "favoris", "panier", "product_views"]:
         with open(os.path.join(output_dir, f"kpis_{section}.json"), "w", encoding="utf-8") as f:
             json.dump(kpis[section], f, ensure_ascii=False, indent=2, default=_convert)
 
@@ -478,6 +567,13 @@ def load_all(kpis: dict, db_path: str = DB_PATH, export_json: bool = True) -> di
         tables_written += [
             "kpi_panier_summary", "kpi_panier_by_category",
             "kpi_panier_top_products",
+        ]
+
+        load_kpi_product_views(conn, kpis)
+        tables_written += [
+            "kpi_views_summary", "kpi_views_top_products",
+            "kpi_views_by_category", "kpi_views_by_source",
+            "kpi_views_over_time",
         ]
 
         _log_etl_run(conn, "SUCCESS", f"{len(tables_written)} tables écrites")

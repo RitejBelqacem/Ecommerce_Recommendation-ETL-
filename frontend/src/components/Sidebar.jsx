@@ -9,9 +9,9 @@ export const SIDEBAR_WIDTH = 220; // ← exporté pour que les pages l'utilisent
 
 const subItems = [
   { label: "Vue globale",   path: "/admin" },
-  { label: "Utilisateurs",  path: "/dashboard/users" },
-  { label: "Produits",      path: "/dashboard/products" },
-  { label: "Commandes",     path: "/dashboard/orders" },
+  { label: "Utilisateurs", path: "/admin/utilisateurs" },
+  { label: "Produits", path: "/admin/produits" },
+  {label: "Commandes", path: "/admin/commandes" },
   { label: "Favoris",       path: "/dashboard/favoris" },
   { label: "Panier",        path: "/dashboard/panier" },
 ];

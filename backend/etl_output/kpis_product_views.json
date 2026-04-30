@@ -1,0 +1,234 @@
+{
+  "total_views": 2985,
+  "unique_products": 942,
+  "unique_visitors": 953,
+  "avg_views_per_product": 3.17,
+  "top_products": [
+    {
+      "product_id": 724,
+      "product_name": "Send Product",
+      "category": "Electronics",
+      "views": 10
+    },
+    {
+      "product_id": 366,
+      "product_name": "Would Product",
+      "category": "Beauty",
+      "views": 10
+    },
+    {
+      "product_id": 810,
+      "product_name": "Allow Product",
+      "category": "Sports",
+      "views": 9
+    },
+    {
+      "product_id": 719,
+      "product_name": "Manage Product",
+      "category": "Beauty",
+      "views": 9
+    },
+    {
+      "product_id": 555,
+      "product_name": "Worker Product",
+      "category": "Beauty",
+      "views": 9
+    },
+    {
+      "product_id": 885,
+      "product_name": "Four Product",
+      "category": "Electronics",
+      "views": 8
+    },
+    {
+      "product_id": 469,
+      "product_name": "Specific Product",
+      "category": "Sports",
+      "views": 8
+    },
+    {
+      "product_id": 175,
+      "product_name": "Beat Product",
+      "category": "Beauty",
+      "views": 8
+    },
+    {
+      "product_id": 330,
+      "product_name": "Move Product",
+      "category": "Electronics",
+      "views": 8
+    },
+    {
+      "product_id": 271,
+      "product_name": "Agent Product",
+      "category": "Home",
+      "views": 8
+    }
+  ],
+  "by_category": [
+    {
+      "category": "Electronics",
+      "views": 671
+    },
+    {
+      "category": "Beauty",
+      "views": 666
+    },
+    {
+      "category": "Clothing",
+      "views": 584
+    },
+    {
+      "category": "Sports",
+      "views": 575
+    },
+    {
+      "category": "Home",
+      "views": 489
+    }
+  ],
+  "by_source": [
+    {
+      "source": "recommendation",
+      "views": 763
+    },
+    {
+      "source": "home",
+      "views": 754
+    },
+    {
+      "source": "product_page",
+      "views": 736
+    },
+    {
+      "source": "search",
+      "views": 732
+    }
+  ],
+  "views_over_time": [
+    {
+      "date": "2026-03-31",
+      "views": 2
+    },
+    {
+      "date": "2026-04-01",
+      "views": 5
+    },
+    {
+      "date": "2026-04-02",
+      "views": 7
+    },
+    {
+      "date": "2026-04-03",
+      "views": 6
+    },
+    {
+      "date": "2026-04-04",
+      "views": 7
+    },
+    {
+      "date": "2026-04-05",
+      "views": 7
+    },
+    {
+      "date": "2026-04-06",
+      "views": 6
+    },
+    {
+      "date": "2026-04-07",
+      "views": 6
+    },
+    {
+      "date": "2026-04-08",
+      "views": 14
+    },
+    {
+      "date": "2026-04-09",
+      "views": 11
+    },
+    {
+      "date": "2026-04-10",
+      "views": 5
+    },
+    {
+      "date": "2026-04-11",
+      "views": 11
+    },
+    {
+      "date": "2026-04-12",
+      "views": 6
+    },
+    {
+      "date": "2026-04-13",
+      "views": 6
+    },
+    {
+      "date": "2026-04-14",
+      "views": 4
+    },
+    {
+      "date": "2026-04-15",
+      "views": 5
+    },
+    {
+      "date": "2026-04-16",
+      "views": 9
+    },
+    {
+      "date": "2026-04-17",
+      "views": 7
+    },
+    {
+      "date": "2026-04-18",
+      "views": 13
+    },
+    {
+      "date": "2026-04-19",
+      "views": 4
+    },
+    {
+      "date": "2026-04-20",
+      "views": 9
+    },
+    {
+      "date": "2026-04-21",
+      "views": 5
+    },
+    {
+      "date": "2026-04-22",
+      "views": 4
+    },
+    {
+      "date": "2026-04-23",
+      "views": 10
+    },
+    {
+      "date": "2026-04-24",
+      "views": 13
+    },
+    {
+      "date": "2026-04-25",
+      "views": 11
+    },
+    {
+      "date": "2026-04-26",
+      "views": 11
+    },
+    {
+      "date": "2026-04-27",
+      "views": 7
+    },
+    {
+      "date": "2026-04-28",
+      "views": 10
+    },
+    {
+      "date": "2026-04-29",
+      "views": 5
+    },
+    {
+      "date": "2026-04-30",
+      "views": 6
+    }
+  ]
+}
