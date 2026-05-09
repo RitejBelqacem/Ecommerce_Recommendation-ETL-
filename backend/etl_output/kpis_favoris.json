@@ -1,13 +1,18 @@
 {
-  "total_favoris": 2007,
-  "users_with_fav": 862,
-  "pct_users_fav": 42.99,
-  "avg_fav_per_user": 2.33,
+  "total_favoris": 2000,
+  "users_with_fav": 861,
+  "pct_users_fav": 42.94,
+  "avg_fav_per_user": 2.32,
   "top_products": [
     {
       "product_id": 166,
       "product_name": "Either",
       "count": 2
+    },
+    {
+      "product_id": 663,
+      "product_name": "Agency",
+      "count": 1
     },
     {
       "product_id": 662,
@@ -48,17 +53,12 @@
       "product_id": 660,
       "product_name": "How",
       "count": 1
-    },
-    {
-      "product_id": 659,
-      "product_name": "Yard",
-      "count": 1
     }
   ],
   "by_category": [
     {
       "category": "Electronics",
-      "count": 427
+      "count": 426
     },
     {
       "category": "Sports",
@@ -70,11 +70,11 @@
     },
     {
       "category": "Beauty",
-      "count": 388
+      "count": 384
     },
     {
       "category": "Home",
-      "count": 378
+      "count": 376
     }
   ]
 }

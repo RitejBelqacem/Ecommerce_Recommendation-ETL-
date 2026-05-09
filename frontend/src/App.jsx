@@ -16,6 +16,10 @@ import AdminProducts from "./pages/AdminProducts";
 import UsersDashboard from "./pages/UsersDashboard";
 import ProductsDashboard from "./pages/ProductsDashboard";
 import CommandesDashboard from "./pages/CommandesDashboard";
+import FavorisDashboard from "./pages/FavorisDashboard";
+import PanierDashboard  from "./pages/PanierDashboard";
+
+
 
 
 function App() {
@@ -39,6 +43,8 @@ function App() {
         <Route path="/admin/utilisateurs" element={<UsersDashboard />} />
         <Route path="/admin/produits" element={<ProductsDashboard />} />
         <Route path="/admin/commandes" element={<CommandesDashboard />} />
+        <Route path="/admin/favoris" element={<FavorisDashboard />} />
+        <Route path="/admin/panier"  element={<PanierDashboard />} />
       </Routes>
     </BrowserRouter>
   );

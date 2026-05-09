@@ -5,7 +5,7 @@ from etl.load import load_all
 DB_PATH = "instance/database.db"
 
 def run_etl():
-    print("🚀 ETL START")
+    print(" ETL START")
 
     # 1. EXTRACT
     raw_data = extract_all(DB_PATH)

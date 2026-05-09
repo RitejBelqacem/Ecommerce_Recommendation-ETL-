@@ -1,8 +1,8 @@
 {
   "users": {
     "total_users": 2005,
-    "new_7d": 14,
-    "new_30d": 44,
+    "new_7d": 0,
+    "new_30d": 34,
     "by_country": [
       {
         "country": "Tunisia",
@@ -291,7 +291,7 @@
     "avg_price": 1506.99,
     "avg_discount": 106.54,
     "featured": 958,
-    "out_of_stock": 39,
+    "out_of_stock": 40,
     "available": 1008,
     "by_category": [
       {
@@ -381,7 +381,7 @@
     "avg_cart": 1525.42,
     "min_order": 52.0,
     "max_order": 16047.0,
-    "orders_7d": 8,
+    "orders_7d": 0,
     "users_ordered": 875,
     "conversion_rate": 43.64,
     "monthly": [
@@ -13234,15 +13234,20 @@
     ]
   },
   "favoris": {
-    "total_favoris": 2007,
-    "users_with_fav": 862,
-    "pct_users_fav": 42.99,
-    "avg_fav_per_user": 2.33,
+    "total_favoris": 2000,
+    "users_with_fav": 861,
+    "pct_users_fav": 42.94,
+    "avg_fav_per_user": 2.32,
     "top_products": [
       {
         "product_id": 166,
         "product_name": "Either",
         "count": 2
+      },
+      {
+        "product_id": 663,
+        "product_name": "Agency",
+        "count": 1
       },
       {
         "product_id": 662,
@@ -13283,17 +13288,12 @@
         "product_id": 660,
         "product_name": "How",
         "count": 1
-      },
-      {
-        "product_id": 659,
-        "product_name": "Yard",
-        "count": 1
       }
     ],
     "by_category": [
       {
         "category": "Electronics",
-        "count": 427
+        "count": 426
       },
       {
         "category": "Sports",
@@ -13305,24 +13305,24 @@
       },
       {
         "category": "Beauty",
-        "count": 388
+        "count": 384
       },
       {
         "category": "Home",
-        "count": 378
+        "count": 376
       }
     ]
   },
   "panier": {
-    "total_items": 2001,
-    "total_quantity": 6079,
+    "total_items": 2002,
+    "total_quantity": 6080,
     "users_with_cart": 863,
     "abandoned_carts": 110,
     "abandon_rate": 12.75,
     "by_category": [
       {
         "category": "Beauty",
-        "quantity": 1266
+        "quantity": 1267
       },
       {
         "category": "Clothing",
@@ -13348,48 +13348,48 @@
         "total_quantity": 7
       },
       {
+        "product_id": 767,
+        "product_name": "Hot",
+        "total_quantity": 5
+      },
+      {
+        "product_id": 767,
+        "product_name": "Beyond",
+        "total_quantity": 5
+      },
+      {
+        "product_id": 161,
+        "product_name": "Without",
+        "total_quantity": 5
+      },
+      {
         "product_id": 161,
         "product_name": "Street",
         "total_quantity": 5
       },
       {
-        "product_id": 392,
-        "product_name": "Care",
+        "product_id": 161,
+        "product_name": "Dark",
         "total_quantity": 5
       },
       {
-        "product_id": 391,
-        "product_name": "Not",
+        "product_id": 161,
+        "product_name": "Black",
         "total_quantity": 5
       },
       {
-        "product_id": 390,
-        "product_name": "Draw",
+        "product_id": 790,
+        "product_name": "Others",
         "total_quantity": 5
       },
       {
-        "product_id": 386,
-        "product_name": "Head",
+        "product_id": 787,
+        "product_name": "Season",
         "total_quantity": 5
       },
       {
-        "product_id": 958,
-        "product_name": "Data",
-        "total_quantity": 5
-      },
-      {
-        "product_id": 956,
-        "product_name": "Whatever",
-        "total_quantity": 5
-      },
-      {
-        "product_id": 956,
-        "product_name": "Protect",
-        "total_quantity": 5
-      },
-      {
-        "product_id": 954,
-        "product_name": "You",
+        "product_id": 785,
+        "product_name": "Hour",
         "total_quantity": 5
       }
     ]
@@ -13503,44 +13503,8 @@
     ],
     "views_over_time": [
       {
-        "date": "2026-03-31",
-        "views": 2
-      },
-      {
-        "date": "2026-04-01",
-        "views": 5
-      },
-      {
-        "date": "2026-04-02",
-        "views": 7
-      },
-      {
-        "date": "2026-04-03",
-        "views": 6
-      },
-      {
-        "date": "2026-04-04",
-        "views": 7
-      },
-      {
-        "date": "2026-04-05",
-        "views": 7
-      },
-      {
-        "date": "2026-04-06",
-        "views": 6
-      },
-      {
-        "date": "2026-04-07",
-        "views": 6
-      },
-      {
-        "date": "2026-04-08",
-        "views": 14
-      },
-      {
         "date": "2026-04-09",
-        "views": 11
+        "views": 4
       },
       {
         "date": "2026-04-10",

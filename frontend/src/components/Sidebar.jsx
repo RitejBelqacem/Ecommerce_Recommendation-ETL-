@@ -12,8 +12,8 @@ const subItems = [
   { label: "Utilisateurs", path: "/admin/utilisateurs" },
   { label: "Produits", path: "/admin/produits" },
   {label: "Commandes", path: "/admin/commandes" },
-  { label: "Favoris",       path: "/dashboard/favoris" },
-  { label: "Panier",        path: "/dashboard/panier" },
+  { label: "Favoris", path: "/admin/favoris" },
+  { label: "Panier",  path: "/admin/panier"  },  
 ];
 
 export default function Sidebar() {

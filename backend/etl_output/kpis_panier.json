@@ -1,13 +1,13 @@
 {
-  "total_items": 2001,
-  "total_quantity": 6079,
+  "total_items": 2002,
+  "total_quantity": 6080,
   "users_with_cart": 863,
   "abandoned_carts": 110,
   "abandon_rate": 12.75,
   "by_category": [
     {
       "category": "Beauty",
-      "quantity": 1266
+      "quantity": 1267
     },
     {
       "category": "Clothing",
@@ -33,48 +33,48 @@
       "total_quantity": 7
     },
     {
+      "product_id": 767,
+      "product_name": "Hot",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 767,
+      "product_name": "Beyond",
+      "total_quantity": 5
+    },
+    {
+      "product_id": 161,
+      "product_name": "Without",
+      "total_quantity": 5
+    },
+    {
       "product_id": 161,
       "product_name": "Street",
       "total_quantity": 5
     },
     {
-      "product_id": 392,
-      "product_name": "Care",
+      "product_id": 161,
+      "product_name": "Dark",
       "total_quantity": 5
     },
     {
-      "product_id": 391,
-      "product_name": "Not",
+      "product_id": 161,
+      "product_name": "Black",
       "total_quantity": 5
     },
     {
-      "product_id": 390,
-      "product_name": "Draw",
+      "product_id": 790,
+      "product_name": "Others",
       "total_quantity": 5
     },
     {
-      "product_id": 386,
-      "product_name": "Head",
+      "product_id": 787,
+      "product_name": "Season",
       "total_quantity": 5
     },
     {
-      "product_id": 958,
-      "product_name": "Data",
-      "total_quantity": 5
-    },
-    {
-      "product_id": 956,
-      "product_name": "Whatever",
-      "total_quantity": 5
-    },
-    {
-      "product_id": 956,
-      "product_name": "Protect",
-      "total_quantity": 5
-    },
-    {
-      "product_id": 954,
-      "product_name": "You",
+      "product_id": 785,
+      "product_name": "Hour",
       "total_quantity": 5
     }
   ]
