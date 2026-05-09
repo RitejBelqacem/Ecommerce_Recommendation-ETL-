@@ -17,6 +17,8 @@ function AdminProducts() {
   // MODAL STATES
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);  
+const [productToDelete, setProductToDelete] = useState(null);  
 
   const [form, setForm] = useState({
     name: "",
@@ -50,15 +52,22 @@ function AdminProducts() {
   }, [category]);
 
   // ❌ DELETE PRODUCT
-  const handleDelete = (id) => {
-    if (!window.confirm("❌ Voulez-vous vraiment supprimer ce produit ?")) return;
+const handleDeleteClick = (product) => {
+  setProductToDelete(product);
+  setDeleteModalOpen(true);
+};
 
-    fetch(`http://127.0.0.1:5000/products/${id}`, {
-      method: "DELETE"
-    })
-      .then(res => res.json())
-      .then(() => fetchProducts());
-  };
+const confirmDelete = () => {
+  fetch(`http://127.0.0.1:5000/products/${productToDelete.id}`, {
+    method: "DELETE"
+  })
+    .then(res => res.json())
+    .then(() => {
+      fetchProducts();
+      setDeleteModalOpen(false);
+      setProductToDelete(null);
+    });
+};
 
   //  OPEN MODAL + PRE-FILL FORM
   const handleEdit = (product) => {
@@ -189,12 +198,12 @@ function AdminProducts() {
                   ✏️ Modifier
                 </button>
 
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDelete(product.id)}
-                >
-                  ❌ Supprimer
-                </button>
+                  <button
+  className="delete-btn"
+  onClick={() => handleDeleteClick(product)}
+>
+  ❌ Supprimer
+</button>
 
               </div>
             </div>
@@ -286,7 +295,43 @@ function AdminProducts() {
             </div>
           </div>
         )}
+{/* DELETE MODAL */}
+{deleteModalOpen && (
+  <div className="modal-overlay">
 
+    <div className="modal delete-modal">
+
+      <h2>🗑️ Supprimer produit</h2>
+
+      <p style={{ marginTop: "15px", color: "#555" }}>
+        Voulez-vous vraiment supprimer :
+      </p>
+
+      <h3 style={{ marginTop: "10px", color: "#e53935" }}>
+        {productToDelete?.name}
+      </h3>
+
+      <div className="modal-actions">
+
+        <button
+          className="btn-danger"
+          onClick={confirmDelete}
+        >
+          ❌ Oui, supprimer
+        </button>
+
+        <button
+          className="btn-secondary"
+          onClick={() => setDeleteModalOpen(false)}
+        >
+          Annuler
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+)}
       </div>
     </div>
   );

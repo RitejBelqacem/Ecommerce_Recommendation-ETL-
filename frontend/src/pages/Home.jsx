@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import "../CSS/Home.css";
+import RecommendationSection from "../components/RecommendationSection";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -128,7 +129,12 @@ function Home() {
           </select>
 
         </div>
-
+<RecommendationSection
+  onToggleFavorite={toggleFavorite}
+  onToggleCart={toggleCart}
+  favorites={favorites}
+  cart={cart}
+/>
         {/* PRODUCTS */}
         <div className="products-grid">
 

@@ -8,7 +8,6 @@ import os
 # Import des blueprints
 from routes.products import products_bp
 from routes.auth import auth_bp
-from routes.recommendation import recommend_bp
 from routes.panier import panier_bp
 from routes.commande import commande_bp
 from routes.favoris import favoris_bp
@@ -17,8 +16,7 @@ from routes.activity import activity_bp
 from routes.analytics import analytics_bp
 from etl.extract import extract_product_views
 from etl.transform import transform_product_views
-
-
+from routes.recommendation import recommend_bp
 # Initialisation de l'app
 app = Flask(__name__)
 
@@ -55,6 +53,7 @@ app.register_blueprint(commande_bp)
 app.register_blueprint(favoris_bp)
 app.register_blueprint(activity_bp)
 app.register_blueprint(analytics_bp) 
+
 @app.route("/")
 def home():
     return {"message": "API is working 🚀"}

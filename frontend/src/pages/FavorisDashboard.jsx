@@ -509,11 +509,6 @@ export default function FavorisDashboard() {
               <div style={{ width: 8, height: 8, borderRadius: "50%", background: C.accent }} />
               <div style={{ fontSize: 16, fontWeight: 600, color: C.textPrimary }}>Favoris</div>
             </div>
-            {timeLabel && (
-              <div style={{ fontSize: 12, color: C.textMuted, marginTop: 2, marginLeft: 18 }}>
-                Mis à jour à {timeLabel}
-              </div>
-            )}
           </div>
           <button
             onClick={handleRefresh} disabled={loading}

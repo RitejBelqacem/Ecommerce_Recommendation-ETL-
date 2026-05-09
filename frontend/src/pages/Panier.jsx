@@ -156,7 +156,6 @@ function Panier() {
       {/* MODAL */}
     {/* MODAL via Portal — rendu directement dans <body> */}
       {showModal && createPortal(
-        <div className="modal">
           <div className="modal-content">
 
             <h2>Commande</h2>
@@ -185,8 +184,8 @@ function Panier() {
               Annuler
             </button>
 
-          </div>
-        </div>,
+          </div>,
+      
         document.getElementById("root")   // ← injecté directement dans <body>, aucun parent ne peut interférer
       )}
     </div>

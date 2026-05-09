@@ -29,6 +29,8 @@ function ResetPassword() {
     <div className="forgot-container">
       <div className="forgot-form">
         <h2>Nouveau mot de passe</h2>
+<p>Choisissez un mot de passe sécurisé</p>
+        <h2>Nouveau mot de passe</h2>
 
         <input
           type="password"
