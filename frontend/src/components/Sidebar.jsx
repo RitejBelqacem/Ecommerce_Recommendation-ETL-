@@ -3,22 +3,23 @@ import { useState } from "react";
 import {
   FaTachometerAlt, FaBox, FaSignOutAlt, FaChevronDown,
 } from "react-icons/fa";
+import ChatBot from "./ChatBot";
 
 const NAV_ACCENT = "#573ff5";
-export const SIDEBAR_WIDTH = 220; // ← exporté pour que les pages l'utilisent
+export const SIDEBAR_WIDTH = 220;
 
 const subItems = [
   { label: "Vue globale",   path: "/admin" },
   { label: "Utilisateurs", path: "/admin/utilisateurs" },
-  { label: "Produits", path: "/admin/produits" },
-  {label: "Commandes", path: "/admin/commandes" },
-  { label: "Favoris", path: "/admin/favoris" },
-  { label: "Panier",  path: "/admin/panier"  },  
+  { label: "Produits",     path: "/admin/produits" },
+  { label: "Commandes",    path: "/admin/commandes" },
+  { label: "Favoris",      path: "/admin/favoris" },
+  { label: "Panier",       path: "/admin/panier" },
 ];
 
 export default function Sidebar() {
-  const navigate  = useNavigate();
-  const location  = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [open, setOpen] = useState(true);
 
   const isActive = (path) => location.pathname === path;
@@ -30,28 +31,31 @@ export default function Sidebar() {
 
   return (
     <div style={{
-      position: "fixed",      // ← fixé en dehors du flux
+      position: "fixed",
       top: 0, left: 0,
       width: SIDEBAR_WIDTH,
       height: "100vh",
       zIndex: 100,
       background: "#1e1b3a",
-      display: "flex", flexDirection: "column",
-      padding: "20px 14px",
+      display: "flex",
+      flexDirection: "column",
+      padding: "20px 14px 14px",
+      overflowY: "auto",        // ← scroll si le contenu dépasse
     }}>
 
       {/* Logo */}
-      <div style={{ padding: "0 6px", marginBottom: 28 }}>
+      <div style={{ padding: "0 6px", marginBottom: 28, flexShrink: 0 }}>
         <span style={{ color: "#fff", fontWeight: 700, fontSize: 16 }}>E</span>
         <span style={{ color: "#a89df5", fontWeight: 500, fontSize: 15 }}>shop </span>
         <span style={{ color: NAV_ACCENT, fontWeight: 700, fontSize: 16 }}>Admin</span>
       </div>
 
+      {/* Navigation — flex: 1 pour prendre l'espace dispo */}
       <nav style={{ flex: 1, display: "flex", flexDirection: "column", gap: 2 }}>
 
         {/* Dashboard toggle */}
         <div
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen(v => !v)}
           style={{
             display: "flex", alignItems: "center", gap: 10,
             padding: "8px 10px", borderRadius: 8, cursor: "pointer",
@@ -72,19 +76,33 @@ export default function Sidebar() {
 
         {/* Submenu */}
         {open && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 1, marginLeft: 24, marginTop: 2 }}>
+          <div style={{
+            display: "flex", flexDirection: "column", gap: 1,
+            marginLeft: 24, marginTop: 2,
+          }}>
             {subItems.map(({ label, path }) => (
               <div
                 key={path}
                 onClick={() => navigate(path)}
                 style={{
-                  padding: "6px 10px", borderRadius: 6, fontSize: 12, cursor: "pointer",
+                  padding: "6px 10px", borderRadius: 6,
+                  fontSize: 12, cursor: "pointer",
                   color: isActive(path) ? "#a89df5" : "#8b86b0",
                   background: isActive(path) ? "#2d2856" : "transparent",
                   transition: "background 0.15s, color 0.15s",
                 }}
-                onMouseEnter={(e) => { if (!isActive(path)) { e.currentTarget.style.background = "#2d2856"; e.currentTarget.style.color = "#c4bfed"; }}}
-                onMouseLeave={(e) => { if (!isActive(path)) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#8b86b0"; }}}
+                onMouseEnter={e => {
+                  if (!isActive(path)) {
+                    e.currentTarget.style.background = "#2d2856";
+                    e.currentTarget.style.color = "#c4bfed";
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isActive(path)) {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#8b86b0";
+                  }
+                }}
               >
                 {label}
               </div>
@@ -103,14 +121,25 @@ export default function Sidebar() {
             background: isActive("/admin/products") ? NAV_ACCENT : "transparent",
             transition: "background 0.15s, color 0.15s",
           }}
-          onMouseEnter={(e) => { if (!isActive("/admin/products")) { e.currentTarget.style.background = "#2d2856"; e.currentTarget.style.color = "#fff"; }}}
-          onMouseLeave={(e) => { if (!isActive("/admin/products")) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#a8a3c9"; }}}
+          onMouseEnter={e => {
+            if (!isActive("/admin/products")) {
+              e.currentTarget.style.background = "#2d2856";
+              e.currentTarget.style.color = "#fff";
+            }
+          }}
+          onMouseLeave={e => {
+            if (!isActive("/admin/products")) {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "#a8a3c9";
+            }
+          }}
         >
           <FaBox style={{ fontSize: 13, flexShrink: 0 }} />
           Gestion des produits
         </div>
 
       </nav>
+
 
       {/* Logout */}
       <button
@@ -121,9 +150,16 @@ export default function Sidebar() {
           background: "#2d2856", color: "#a8a3c9",
           fontSize: 13, cursor: "pointer", width: "100%",
           transition: "background 0.15s, color 0.15s",
+          marginTop: 8, flexShrink: 0,
         }}
-        onMouseEnter={(e) => { e.currentTarget.style.background = NAV_ACCENT; e.currentTarget.style.color = "#fff"; }}
-        onMouseLeave={(e) => { e.currentTarget.style.background = "#2d2856"; e.currentTarget.style.color = "#a8a3c9"; }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = NAV_ACCENT;
+          e.currentTarget.style.color = "#fff";
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = "#2d2856";
+          e.currentTarget.style.color = "#a8a3c9";
+        }}
       >
         <FaSignOutAlt style={{ fontSize: 13 }} />
         Déconnexion

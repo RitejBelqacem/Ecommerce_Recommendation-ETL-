@@ -1,6 +1,6 @@
 {
-  "total_views": 2985,
-  "unique_products": 942,
+  "total_views": 2980,
+  "unique_products": 940,
   "unique_visitors": 953,
   "avg_views_per_product": 3.17,
   "top_products": [
@@ -68,7 +68,7 @@
   "by_category": [
     {
       "category": "Electronics",
-      "views": 671
+      "views": 668
     },
     {
       "category": "Beauty",
@@ -84,21 +84,21 @@
     },
     {
       "category": "Home",
-      "views": 489
+      "views": 487
     }
   ],
   "by_source": [
     {
       "source": "recommendation",
-      "views": 763
+      "views": 762
     },
     {
       "source": "home",
-      "views": 754
+      "views": 752
     },
     {
       "source": "product_page",
-      "views": 736
+      "views": 734
     },
     {
       "source": "search",
@@ -107,12 +107,8 @@
   ],
   "views_over_time": [
     {
-      "date": "2026-04-09",
-      "views": 4
-    },
-    {
       "date": "2026-04-10",
-      "views": 5
+      "views": 2
     },
     {
       "date": "2026-04-11",
@@ -188,7 +184,7 @@
     },
     {
       "date": "2026-04-29",
-      "views": 5
+      "views": 4
     },
     {
       "date": "2026-04-30",

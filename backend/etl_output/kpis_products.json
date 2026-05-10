@@ -1,14 +1,14 @@
 {
-  "total_products": 1997,
-  "avg_price": 1506.99,
-  "avg_discount": 106.54,
+  "total_products": 1995,
+  "avg_price": 1506.92,
+  "avg_discount": 106.57,
   "featured": 958,
   "out_of_stock": 40,
-  "available": 1008,
+  "available": 1007,
   "by_category": [
     {
       "category": "Electronics",
-      "count": 423
+      "count": 422
     },
     {
       "category": "Beauty",
@@ -24,13 +24,13 @@
     },
     {
       "category": "Home",
-      "count": 366
+      "count": 365
     }
   ],
   "price_by_category": [
     {
       "category": "Home",
-      "avg_price": 1536.35
+      "avg_price": 1539.86
     },
     {
       "category": "Sports",
@@ -46,7 +46,7 @@
     },
     {
       "category": "Electronics",
-      "avg_price": 1491.61
+      "avg_price": 1488.29
     }
   ],
   "top_discounted": [

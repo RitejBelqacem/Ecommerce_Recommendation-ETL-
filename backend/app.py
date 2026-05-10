@@ -1,22 +1,36 @@
-from flask import Flask, jsonify
+
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_mail import Mail
 from models import db
 from flask import send_from_directory
 import os
+ 
+from dotenv import load_dotenv
+load_dotenv()
+ 
 # Import des blueprints
 from routes.products import products_bp
 from routes.auth import auth_bp
 from routes.panier import panier_bp
 from routes.commande import commande_bp
 from routes.favoris import favoris_bp
-from etl.pipeline import run_etl 
+from etl.pipeline import run_etl
 from routes.activity import activity_bp
 from routes.analytics import analytics_bp
 from etl.extract import extract_product_views
 from etl.transform import transform_product_views
 from routes.recommendation import recommend_bp
+ 
+from chatbot_flask import load_kpis, build_system_prompt
+import anthropic
+from groq import Groq
+
+ 
+ANTHROPIC_CLIENT = anthropic.Anthropic(
+    api_key=os.getenv("ANTHROPIC_API_KEY")
+)
 # Initialisation de l'app
 app = Flask(__name__)
 
@@ -62,7 +76,36 @@ def home():
 with app.app_context():
     db.create_all()
 
+load_dotenv()
 
+
+GROQ_CLIENT = Groq(api_key="kle")  
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data     = request.get_json()
+    messages = data.get("messages", [])
+
+    if not messages:
+        return jsonify({"reply": "Aucun message reçu."}), 400
+
+    kpis          = load_kpis()
+    system_prompt = build_system_prompt(kpis)
+
+    try:
+        response = GROQ_CLIENT.chat.completions.create(
+            model    = "llama-3.3-70b-versatile",  # modèle gratuit
+            messages = [
+                {"role": "system", "content": system_prompt},
+                *messages
+            ],
+            max_tokens = 1024,
+        )
+        reply = response.choices[0].message.content
+        return jsonify({"reply": reply})
+
+    except Exception as e:
+        return jsonify({"reply": f"❌ Erreur : {str(e)}"}), 500
 @app.route("/api/etl/run", methods=["POST"])
 def trigger_etl():
     result = run_etl()

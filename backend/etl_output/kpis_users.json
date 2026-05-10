@@ -1,7 +1,7 @@
 {
-  "total_users": 2005,
-  "new_7d": 0,
-  "new_30d": 34,
+  "total_users": 2007,
+  "new_7d": 2,
+  "new_30d": 36,
   "by_country": [
     {
       "country": "Tunisia",
@@ -53,7 +53,7 @@
     },
     {
       "country": "",
-      "count": 2
+      "count": 4
     },
     {
       "country": "Tunisie",
@@ -71,7 +71,7 @@
     },
     {
       "role": "user",
-      "count": 2004
+      "count": 2006
     }
   ],
   "registrations_over_time": [
@@ -282,6 +282,10 @@
     {
       "month": "2026-04",
       "count": 44
+    },
+    {
+      "month": "2026-05",
+      "count": 2
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route ,useLocation} from "react-router-dom";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -19,12 +19,19 @@ import CommandesDashboard from "./pages/CommandesDashboard";
 import FavorisDashboard from "./pages/FavorisDashboard";
 import PanierDashboard  from "./pages/PanierDashboard";
 
+import ChatBot from "./components/ChatBot";
 
 
 
+function AdminChatBot() {
+  const location = useLocation();
+  const isAdmin  = location.pathname.startsWith("/admin");
+  return isAdmin ? <ChatBot /> : null;
+}
 function App() {
   return (
     <BrowserRouter>
+    <AdminChatBot />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />

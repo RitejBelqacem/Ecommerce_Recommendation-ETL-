@@ -1,13 +1,13 @@
 {
-  "total_items": 2002,
-  "total_quantity": 6080,
-  "users_with_cart": 863,
+  "total_items": 2000,
+  "total_quantity": 6078,
+  "users_with_cart": 862,
   "abandoned_carts": 110,
-  "abandon_rate": 12.75,
+  "abandon_rate": 12.76,
   "by_category": [
     {
       "category": "Beauty",
-      "quantity": 1267
+      "quantity": 1266
     },
     {
       "category": "Clothing",
@@ -15,7 +15,7 @@
     },
     {
       "category": "Electronics",
-      "quantity": 1211
+      "quantity": 1210
     },
     {
       "category": "Home",
@@ -33,48 +33,48 @@
       "total_quantity": 7
     },
     {
-      "product_id": 767,
-      "product_name": "Hot",
+      "product_id": 406,
+      "product_name": "Hand",
       "total_quantity": 5
     },
     {
-      "product_id": 767,
-      "product_name": "Beyond",
+      "product_id": 405,
+      "product_name": "Officer",
       "total_quantity": 5
     },
     {
-      "product_id": 161,
-      "product_name": "Without",
+      "product_id": 404,
+      "product_name": "Different",
       "total_quantity": 5
     },
     {
-      "product_id": 161,
-      "product_name": "Street",
+      "product_id": 403,
+      "product_name": "Available",
       "total_quantity": 5
     },
     {
-      "product_id": 161,
-      "product_name": "Dark",
+      "product_id": 401,
+      "product_name": "Example",
       "total_quantity": 5
     },
     {
-      "product_id": 161,
-      "product_name": "Black",
+      "product_id": 411,
+      "product_name": "South",
       "total_quantity": 5
     },
     {
-      "product_id": 790,
-      "product_name": "Others",
+      "product_id": 406,
+      "product_name": "Run",
       "total_quantity": 5
     },
     {
-      "product_id": 787,
-      "product_name": "Season",
+      "product_id": 954,
+      "product_name": "You",
       "total_quantity": 5
     },
     {
-      "product_id": 785,
-      "product_name": "Hour",
+      "product_id": 951,
+      "product_name": "Window",
       "total_quantity": 5
     }
   ]

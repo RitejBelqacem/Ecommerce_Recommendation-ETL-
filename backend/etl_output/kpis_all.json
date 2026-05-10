@@ -1,8 +1,8 @@
 {
   "users": {
-    "total_users": 2005,
-    "new_7d": 0,
-    "new_30d": 34,
+    "total_users": 2007,
+    "new_7d": 2,
+    "new_30d": 36,
     "by_country": [
       {
         "country": "Tunisia",
@@ -54,7 +54,7 @@
       },
       {
         "country": "",
-        "count": 2
+        "count": 4
       },
       {
         "country": "Tunisie",
@@ -72,7 +72,7 @@
       },
       {
         "role": "user",
-        "count": 2004
+        "count": 2006
       }
     ],
     "registrations_over_time": [
@@ -283,20 +283,24 @@
       {
         "month": "2026-04",
         "count": 44
+      },
+      {
+        "month": "2026-05",
+        "count": 2
       }
     ]
   },
   "products": {
-    "total_products": 1997,
-    "avg_price": 1506.99,
-    "avg_discount": 106.54,
+    "total_products": 1995,
+    "avg_price": 1506.92,
+    "avg_discount": 106.57,
     "featured": 958,
     "out_of_stock": 40,
-    "available": 1008,
+    "available": 1007,
     "by_category": [
       {
         "category": "Electronics",
-        "count": 423
+        "count": 422
       },
       {
         "category": "Beauty",
@@ -312,13 +316,13 @@
       },
       {
         "category": "Home",
-        "count": 366
+        "count": 365
       }
     ],
     "price_by_category": [
       {
         "category": "Home",
-        "avg_price": 1536.35
+        "avg_price": 1539.86
       },
       {
         "category": "Sports",
@@ -334,7 +338,7 @@
       },
       {
         "category": "Electronics",
-        "avg_price": 1491.61
+        "avg_price": 1488.29
       }
     ],
     "top_discounted": [
@@ -383,7 +387,7 @@
     "max_order": 16047.0,
     "orders_7d": 0,
     "users_ordered": 875,
-    "conversion_rate": 43.64,
+    "conversion_rate": 43.6,
     "monthly": [
       {
         "month": "2022-01",
@@ -13234,9 +13238,9 @@
     ]
   },
   "favoris": {
-    "total_favoris": 2000,
-    "users_with_fav": 861,
-    "pct_users_fav": 42.94,
+    "total_favoris": 2002,
+    "users_with_fav": 862,
+    "pct_users_fav": 42.95,
     "avg_fav_per_user": 2.32,
     "top_products": [
       {
@@ -13293,7 +13297,7 @@
     "by_category": [
       {
         "category": "Electronics",
-        "count": 426
+        "count": 427
       },
       {
         "category": "Sports",
@@ -13305,7 +13309,7 @@
       },
       {
         "category": "Beauty",
-        "count": 384
+        "count": 385
       },
       {
         "category": "Home",
@@ -13314,15 +13318,15 @@
     ]
   },
   "panier": {
-    "total_items": 2002,
-    "total_quantity": 6080,
-    "users_with_cart": 863,
+    "total_items": 2000,
+    "total_quantity": 6078,
+    "users_with_cart": 862,
     "abandoned_carts": 110,
-    "abandon_rate": 12.75,
+    "abandon_rate": 12.76,
     "by_category": [
       {
         "category": "Beauty",
-        "quantity": 1267
+        "quantity": 1266
       },
       {
         "category": "Clothing",
@@ -13330,7 +13334,7 @@
       },
       {
         "category": "Electronics",
-        "quantity": 1211
+        "quantity": 1210
       },
       {
         "category": "Home",
@@ -13348,55 +13352,55 @@
         "total_quantity": 7
       },
       {
-        "product_id": 767,
-        "product_name": "Hot",
+        "product_id": 406,
+        "product_name": "Hand",
         "total_quantity": 5
       },
       {
-        "product_id": 767,
-        "product_name": "Beyond",
+        "product_id": 405,
+        "product_name": "Officer",
         "total_quantity": 5
       },
       {
-        "product_id": 161,
-        "product_name": "Without",
+        "product_id": 404,
+        "product_name": "Different",
         "total_quantity": 5
       },
       {
-        "product_id": 161,
-        "product_name": "Street",
+        "product_id": 403,
+        "product_name": "Available",
         "total_quantity": 5
       },
       {
-        "product_id": 161,
-        "product_name": "Dark",
+        "product_id": 401,
+        "product_name": "Example",
         "total_quantity": 5
       },
       {
-        "product_id": 161,
-        "product_name": "Black",
+        "product_id": 411,
+        "product_name": "South",
         "total_quantity": 5
       },
       {
-        "product_id": 790,
-        "product_name": "Others",
+        "product_id": 406,
+        "product_name": "Run",
         "total_quantity": 5
       },
       {
-        "product_id": 787,
-        "product_name": "Season",
+        "product_id": 954,
+        "product_name": "You",
         "total_quantity": 5
       },
       {
-        "product_id": 785,
-        "product_name": "Hour",
+        "product_id": 951,
+        "product_name": "Window",
         "total_quantity": 5
       }
     ]
   },
   "product_views": {
-    "total_views": 2985,
-    "unique_products": 942,
+    "total_views": 2980,
+    "unique_products": 940,
     "unique_visitors": 953,
     "avg_views_per_product": 3.17,
     "top_products": [
@@ -13464,7 +13468,7 @@
     "by_category": [
       {
         "category": "Electronics",
-        "views": 671
+        "views": 668
       },
       {
         "category": "Beauty",
@@ -13480,21 +13484,21 @@
       },
       {
         "category": "Home",
-        "views": 489
+        "views": 487
       }
     ],
     "by_source": [
       {
         "source": "recommendation",
-        "views": 763
+        "views": 762
       },
       {
         "source": "home",
-        "views": 754
+        "views": 752
       },
       {
         "source": "product_page",
-        "views": 736
+        "views": 734
       },
       {
         "source": "search",
@@ -13503,12 +13507,8 @@
     ],
     "views_over_time": [
       {
-        "date": "2026-04-09",
-        "views": 4
-      },
-      {
         "date": "2026-04-10",
-        "views": 5
+        "views": 2
       },
       {
         "date": "2026-04-11",
@@ -13584,7 +13584,7 @@
       },
       {
         "date": "2026-04-29",
-        "views": 5
+        "views": 4
       },
       {
         "date": "2026-04-30",

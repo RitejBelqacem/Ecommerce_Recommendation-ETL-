@@ -1,7 +1,7 @@
 {
-  "total_favoris": 2000,
-  "users_with_fav": 861,
-  "pct_users_fav": 42.94,
+  "total_favoris": 2002,
+  "users_with_fav": 862,
+  "pct_users_fav": 42.95,
   "avg_fav_per_user": 2.32,
   "top_products": [
     {
@@ -58,7 +58,7 @@
   "by_category": [
     {
       "category": "Electronics",
-      "count": 426
+      "count": 427
     },
     {
       "category": "Sports",
@@ -70,7 +70,7 @@
     },
     {
       "category": "Beauty",
-      "count": 384
+      "count": 385
     },
     {
       "category": "Home",
